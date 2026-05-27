@@ -3,6 +3,10 @@ locale = 'en-us'
 title = 'CEO Notes'
 theme = 'PaperMod' 
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [menu]
 
 [[menu.main]]
