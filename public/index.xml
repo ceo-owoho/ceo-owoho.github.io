@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CEO Notes</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on CEO Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 May 2026 20:33:48 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Menampilkan Gambar</title>
+      <link>http://localhost:1313/posts/menampilkan-gambar/</link>
+      <pubDate>Sat, 16 May 2026 20:33:48 +0700</pubDate>
+      <guid>http://localhost:1313/posts/menampilkan-gambar/</guid>
+      <description>&lt;h2 id=&#34;menampilkan-gambar&#34;&gt;Menampilkan Gambar&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&#34;foto kami&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/menampilkan-gambar/myfam.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Untuk bisa menampilkan gambar kita harus membuat sebuah direktori dengan nama yang sama dengan judul artikel kita dan membuat sebuah file index.md dan meletakkan file gambar yang akan kita tampilkan di dalam direktori tersebut. Misal : kita ingin membuat artikel berjudul &amp;ldquo;mengenal varian nasi pecel&amp;rdquo; yang pada artikel tadi akan menampilkan file &amp;ldquo;pecel.jpg&amp;rdquo;, maka kita harus membuat directory &amp;ldquo;content/posts/mengenal-varian-nasi-pecel/&amp;rdquo;. Lantas membuat sebuah file index.md dan memastikan ada file &amp;ldquo;pecel.jpg&amp;rdquo; di dalamnya. Nah, pada file index.md kita bisa isi dengan sintaks :&lt;br&gt;
+&lt;code&gt;![gambar nasi pecel](pecel.jpg)&lt;/code&gt;.&lt;br&gt;
+Agak ribet ya?. Emang&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Artikel Pertama</title>
+      <link>http://localhost:1313/posts/artikel-pertama/</link>
+      <pubDate>Sat, 16 May 2026 20:17:49 +0700</pubDate>
+      <guid>http://localhost:1313/posts/artikel-pertama/</guid>
+      <description>&lt;h3 id=&#34;hallo&#34;&gt;Hallo..&lt;/h3&gt;
+&lt;p&gt;Ini adalah artikel &lt;em&gt;pertama&lt;/em&gt; dari blog &lt;strong&gt;Myblog&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;blog ini merupakan hasil membaca &lt;a href=&#34;https://pembatikdiy.com/&#34;&gt;link ini&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

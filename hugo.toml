@@ -1,0 +1,24 @@
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'CEO Notes'
+theme = 'PaperMod' 
+
+[menu]
+
+[[menu.main]]
+	identifier = "home"
+	name = "Beranda"
+	url = "/"
+	weight = 10
+
+[[menu.main]]
+	identifier = "posts"
+	name = "Artikel"
+	url = "/posts/"
+	weight = 20
+
+[[menu.main]]
+	identifier = "about"
+	name = "Tentang"
+	url = "/about/" # Pastikan Anda nanti membuat file content/about.md
+	weight = 30
