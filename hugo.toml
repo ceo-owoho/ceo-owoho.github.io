@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 locale = 'en-us'
-title = 'CEO Notes'
+title = "CEO's Notes"
 theme = 'PaperMod' 
 
 [caches]
