@@ -1,6 +1,6 @@
 +++
 date = '2026-05-27T20:04:46+07:00'
-draft = true
+draft = false
 title = 'Mbedinding'
 +++
 ## mBedinding
