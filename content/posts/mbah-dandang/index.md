@@ -2,6 +2,7 @@
 date = '2026-05-27T21:11:55+07:00'
 draft = false
 title = 'Mbah Dandang'
+categories = ["Daily Notes"]
 +++
 
 ![dandang](dandang.jpg)

@@ -14,6 +14,12 @@
     <loc>http://localhost:1313/posts/mbah-dandang/</loc>
     <lastmod>2026-05-27T21:11:55+07:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-05-27T20:04:46+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/daily-notes/</loc>
+    <lastmod>2026-05-27T20:04:46+07:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/mbedinding/</loc>
     <lastmod>2026-05-27T20:04:46+07:00</lastmod>
   </url><url>
@@ -22,8 +28,6 @@
   </url><url>
     <loc>http://localhost:1313/posts/artikel-pertama/</loc>
     <lastmod>2026-05-16T20:17:49+07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
   </url>

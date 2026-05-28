@@ -2,6 +2,7 @@
 date = '2026-05-16T20:17:49+07:00'
 draft = false
 title = 'Artikel Pertama'
+categories = ["Daily Notes"]
 +++
 
 ### Hallo..

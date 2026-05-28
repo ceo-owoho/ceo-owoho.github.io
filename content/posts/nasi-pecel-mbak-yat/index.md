@@ -2,6 +2,7 @@
 date = '2026-05-28T00:27:55Z'
 draft = false
 title = 'Nasi Pecel Mbak Yat'
+categories = ["Daily Notes"]
 +++
 ![nasi pecel](nasi-pecel.jpg)
 
