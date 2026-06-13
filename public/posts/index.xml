@@ -6,8 +6,30 @@
     <description>Recent content in Posts on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 May 2026 10:03:43 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 21:37:12 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gara Gara Golang Script Python Rusak</title>
+      <link>http://localhost:1313/posts/gara-gara-golang-script-python-rusak/</link>
+      <pubDate>Sat, 13 Jun 2026 21:37:12 +0700</pubDate>
+      <guid>http://localhost:1313/posts/gara-gara-golang-script-python-rusak/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;golang&#34; loading=&#34;lazy&#34; src=&#34;golang.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Akhir-akhir ini aku lagi tertarik untuk mempelajari &lt;strong&gt;Golang&lt;/strong&gt;. Bagiku Golang ini versi moderen dari &lt;strong&gt;Python&lt;/strong&gt;. Berbasis CLI juga, jadi mirip sekali dengan Python. Namun ada juga perbedaannya, yang paling aku rasa adalah &lt;strong&gt;learning curve&lt;/strong&gt;nya terjal banget, beda dengan Python.
+Contoh paling sederhana, dalam penulisan package yang di-&lt;strong&gt;import&lt;/strong&gt;. Jika misal aplikasi kita mengimpor package AAA, package BBB, dan package CCC, maka di Python kita bisa menulis :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    from AAA import A
+    from BBB import B
+    from CCC import C
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>Prevent Git Asking Username and Password</title>
+      <link>http://localhost:1313/posts/prevent-git-asking-username-and-password/</link>
+      <pubDate>Sat, 13 Jun 2026 19:53:48 +0700</pubDate>
+      <guid>http://localhost:1313/posts/prevent-git-asking-username-and-password/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;github&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/prevent-git-asking-username-and-password/github_image.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Entah sejak kapan aku tidak ingat, github mengubah mekanisme otentifikasi API-nya pada Terminal, baik itu dari &lt;em&gt;Command-prompt&lt;/em&gt; Windows maupun dari &lt;em&gt;Terminal&lt;/em&gt; Linux atau &lt;em&gt;Termux&lt;/em&gt;. Hal ini mengakibatkan pengguna tidak bisa hanya mengandalkan username dan password akun Githubnya seperti sebelumnya.&lt;/p&gt;
+&lt;p&gt;Semenjak itu pula bila kita ingin menjalankan sintaks &lt;code&gt;git remote add origin ... &lt;/code&gt; atau &lt;code&gt;git pull origin ... &lt;/code&gt; maupun sintaks &lt;code&gt;git push origin ... &lt;/code&gt;, pengguna akan diminta memasukkan username dan selanjutnya akan diminta memasukkan password. Nah, isian dari password ini tidak dapat lagi diisi dengan password akun github, melainkan harus mengisikan &lt;em&gt;token&lt;/em&gt; yang dihasilkan pada menu &lt;em&gt;setting&lt;/em&gt; akun Github. Token ini biasanya berupa satu baris karakter acak yang diawali oleh &lt;em&gt;string&lt;/em&gt; &lt;code&gt;ghp_[karakter acak]&lt;/code&gt;. Hal ini tentu sangat merepotkan karena pengguna harus meng-&lt;em&gt;copy&lt;/em&gt; karakter panjang dan acak tadi untuk kemudian mem-&lt;em&gt;paste&lt;/em&gt;-kan ke layar &lt;em&gt;Command-prompt&lt;/em&gt; atau &lt;em&gt;Terminal&lt;/em&gt; mereka.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Idul Adha 1447 H</title>
       <link>http://localhost:1313/posts/idul-adha-1447-h/</link>

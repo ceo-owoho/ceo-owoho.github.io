@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Idul Adha 1447 H | CEO&#39;s Notes</title>
+<title>Prevent Git Asking Username and Password | CEO&#39;s Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="
-Selamat Hari Raya Idul Adha 1447 H">
+Entah sejak kapan aku tidak ingat, github mengubah mekanisme otentifikasi API-nya pada Terminal, baik itu dari Command-prompt Windows maupun dari Terminal Linux atau Termux. Hal ini mengakibatkan pengguna tidak bisa hanya mengandalkan username dan password akun Githubnya seperti sebelumnya.
+Semenjak itu pula bila kita ingin menjalankan sintaks git remote add origin ...  atau git pull origin ...  maupun sintaks git push origin ... , pengguna akan diminta memasukkan username dan selanjutnya akan diminta memasukkan password. Nah, isian dari password ini tidak dapat lagi diisi dengan password akun github, melainkan harus mengisikan token yang dihasilkan pada menu setting akun Github. Token ini biasanya berupa satu baris karakter acak yang diawali oleh string ghp_[karakter acak]. Hal ini tentu sangat merepotkan karena pengguna harus meng-copy karakter panjang dan acak tadi untuk kemudian mem-paste-kan ke layar Command-prompt atau Terminal mereka.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/idul-adha-1447-h/">
+<link rel="canonical" href="http://localhost:1313/posts/prevent-git-asking-username-and-password/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -19,7 +20,7 @@ Selamat Hari Raya Idul Adha 1447 H">
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/idul-adha-1447-h/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/prevent-git-asking-username-and-password/">
 <noscript>
     <style>
         #theme-toggle,
@@ -125,19 +126,26 @@ Selamat Hari Raya Idul Adha 1447 H">
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Idul Adha 1447 H
+      Prevent Git Asking Username and Password
     </h1>
     <div class="post-meta">
 
-<span title='2026-05-28 10:03:43 +0000 UTC'>May 28, 2026</span>
+<span title='2026-06-13 19:53:48 +0700 +07'>June 13, 2026</span>
 
 </div>
     
 <div>Categories:
-    <a href="/categories/daily-notes/">Daily Notes</a></div>
+    <a href="/categories/programming/">Programming</a></div>
   </header> 
-  <div class="post-content md-content"><p><img alt="kambing" loading="lazy" src="/posts/idul-adha-1447-h/kambing.png"></p>
-<p><strong>Selamat Hari Raya Idul Adha 1447 H</strong></p>
+  <div class="post-content md-content"><p><img alt="github" loading="lazy" src="/posts/prevent-git-asking-username-and-password/github_image.jpg"></p>
+<p>Entah sejak kapan aku tidak ingat, github mengubah mekanisme otentifikasi API-nya pada Terminal, baik itu dari <em>Command-prompt</em> Windows maupun dari <em>Terminal</em> Linux atau <em>Termux</em>. Hal ini mengakibatkan pengguna tidak bisa hanya mengandalkan username dan password akun Githubnya seperti sebelumnya.</p>
+<p>Semenjak itu pula bila kita ingin menjalankan sintaks <code>git remote add origin ... </code> atau <code>git pull origin ... </code> maupun sintaks <code>git push origin ... </code>, pengguna akan diminta memasukkan username dan selanjutnya akan diminta memasukkan password. Nah, isian dari password ini tidak dapat lagi diisi dengan password akun github, melainkan harus mengisikan <em>token</em> yang dihasilkan pada menu <em>setting</em> akun Github. Token ini biasanya berupa satu baris karakter acak yang diawali oleh <em>string</em> <code>ghp_[karakter acak]</code>. Hal ini tentu sangat merepotkan karena pengguna harus meng-<em>copy</em> karakter panjang dan acak tadi untuk kemudian mem-<em>paste</em>-kan ke layar <em>Command-prompt</em> atau <em>Terminal</em> mereka.</p>
+<p>Untungnya ternyata ada sintaks yang bisa kita jalankan pada <em>Command-promt</em> atau <em>Terminal</em> agar isian token tadi dapat diingat oleh sistem dan kita tidak perlu berulang kali mengisikan username dan password. Sintaks tersebut adalah</p>
+<p><code>git config --global credential.helper cache</code></p>
+<p>atau jika ingin membatasi durasi waktu simpan (misal : selama 1 jam), gunakan sintaks ini :</p>
+<p><code>git config credential.helper 'cache --timeout=3600'</code></p>
+<p><em>sumber : <a href="https://sudogem.wordpress.com/">https://sudogem.wordpress.com/</a></em></p>
+<p><em>gambar dari : <a href="https://media.licdn.com/">https://media.licdn.com/</a></em></p>
 
 
   </div>

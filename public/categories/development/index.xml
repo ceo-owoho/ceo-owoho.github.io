@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Development on CEO&#39;s Notes</title>
+    <link>http://localhost:1313/categories/development/</link>
+    <description>Recent content in Development on CEO&#39;s Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 13 Jun 2026 19:53:48 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prevent Git Asking Username and Password</title>
+      <link>http://localhost:1313/posts/prevent-git-asking-username-and-password/</link>
+      <pubDate>Sat, 13 Jun 2026 19:53:48 +0700</pubDate>
+      <guid>http://localhost:1313/posts/prevent-git-asking-username-and-password/</guid>
+      <description>&lt;p&gt;Entah sejak kapan aku tidak ingat, github mengubah mekanisme otentifikasi APInya pada Terminal, baik itu dari &lt;em&gt;Command-prompt&lt;/em&gt; Windows maupun dari &lt;em&gt;Terminal&lt;/em&gt; Linux atau &lt;em&gt;Termux&lt;/em&gt;. Hal ini mengakibatkan pengguna tidak bisa hanya mengandalkan username dan password akun Githubnya seperti sebelumnya.
+Semenjak itu pula bila kita ingin menjalankan sintaks &lt;code&gt;git remote add origin ... &lt;/code&gt; atau &lt;code&gt;git pull origin ... &lt;/code&gt; maupun sintaks &lt;code&gt;git push origin ... &lt;/code&gt;, pengguna akan diminta memasukkan username dan selanjutnya akan diminta memasukkan password. Nah, isian dari password ini tidak dapat lagi diisi dengan password akun github, melainkan harus mengisikan &lt;em&gt;token&lt;/em&gt; yang dihasilkan pada menu &lt;em&gt;setting&lt;/em&gt; akun Github. Token ini biasanya berupa satu baris karakter acak yang diawali oleh &lt;em&gt;string&lt;/em&gt; ````bash ghp_[karakter acak]```. Hal ini tentu sangat merepotkan karena pengguna harus meng-&lt;em&gt;copy&lt;/em&gt; karakter panjang dan acak tadi untuk kemudian mem-&lt;em&gt;paste&lt;/em&gt;-kan ke layar &lt;em&gt;Command-prompt&lt;/em&gt; atau &lt;em&gt;Terminal&lt;/em&gt; mereka.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
