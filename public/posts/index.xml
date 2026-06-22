@@ -6,20 +6,29 @@
     <description>Recent content in Posts on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Jun 2026 21:37:12 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 21:46:07 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Akses Ssh Windows 10</title>
+      <link>http://localhost:1313/posts/akses-ssh-windows-10/</link>
+      <pubDate>Mon, 22 Jun 2026 21:46:07 +0700</pubDate>
+      <guid>http://localhost:1313/posts/akses-ssh-windows-10/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;termux-on-win10&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/akses-ssh-windows-10/ssh_win10.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Malam ini pas ngotak-atik komputer PCku tiba-tiba terlintas pikiran &lt;em&gt;bagaimana cara menjadikan Windows 10 sebagai server SSH dan mengaksesnya dari perankat lain, misal : Termux di hape&lt;/em&gt;. Selama ini aku telah berhasil menjadikan hapeku sebagai server SSH melalui sintaks &lt;strong&gt;sshd&lt;/strong&gt; (tentu dengan instalasi sebelumnya..).&lt;/p&gt;
+&lt;p&gt;Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang tentunya cukup uzur untuk sebuah PC di tahun 2026, namun setelah browsing beberapa saat, ketemulah caranya :&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Gara Gara Golang Script Python Rusak</title>
       <link>http://localhost:1313/posts/gara-gara-golang-script-python-rusak/</link>
       <pubDate>Sat, 13 Jun 2026 21:37:12 +0700</pubDate>
       <guid>http://localhost:1313/posts/gara-gara-golang-script-python-rusak/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;golang&#34; loading=&#34;lazy&#34; src=&#34;golang.jpg&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img alt=&#34;golang&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/gara-gara-golang-script-python-rusak/golang.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Akhir-akhir ini aku lagi tertarik untuk mempelajari &lt;strong&gt;Golang&lt;/strong&gt;. Bagiku Golang ini versi moderen dari &lt;strong&gt;Python&lt;/strong&gt;. Berbasis CLI juga, jadi mirip sekali dengan Python. Namun ada juga perbedaannya, yang paling aku rasa adalah &lt;strong&gt;learning curve&lt;/strong&gt;nya terjal banget, beda dengan Python.
 Contoh paling sederhana, dalam penulisan package yang di-&lt;strong&gt;import&lt;/strong&gt;. Jika misal aplikasi kita mengimpor package AAA, package BBB, dan package CCC, maka di Python kita bisa menulis :&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    from AAA import A
     from BBB import B
     from CCC import C
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;pada Golang jadi begini :&lt;/p&gt;</description>
     </item>
     <item>
       <title>Prevent Git Asking Username and Password</title>
