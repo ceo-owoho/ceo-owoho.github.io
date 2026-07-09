@@ -5,11 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Categories | CEO&#39;s Notes</title>
+<title>Mari Berkenalan dengan Dict Python | CEO&#39;s Notes</title>
 <meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="description" content="
+JSON cukup populer di dunia programming tak terkecuali pada bahasa pemrograman Python. Di Python ada tipe yang sangat mirip dengan JSON yaitu dict. Dict (singkatan dari Dictionary) terdiri dari pasangan key dan value. Contohnya seperti ini :
+myprofil = {
+	&#34;id&#34;: 1,
+	&#34;nama&#34;:&#34;Budi&#34;,
+	&#34;poin&#34;: 13998
+	}
+Pada contoh di atas, id, nama, dan poin adalah contoh key, sedangkan 1, Budi, dan 13998 adalah value-nya.
+Untuk mengakses value dari suatu key Dict, gunakan dict.get([nama_key]). Untuk variabel kamus di atas, jika kita ingin mencari nilai dari poin, maka sintaksnya adalah :">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/categories/">
+<link rel="canonical" href="http://localhost:1313/posts/mari-berkenalan-dengan-dict-python/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +26,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/categories/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/mari-berkenalan-dengan-dict-python/">
 <noscript>
     <style>
         #theme-toggle,
@@ -67,7 +74,7 @@
 
 </script>
 </head>
-<body class="list" id="top">
+<body id="top">
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
@@ -108,7 +115,7 @@
             </li>
             <li>
                 <a href="http://localhost:1313/categories/" title="Kategori">
-                    <span class="active">Kategori</span>
+                    <span>Kategori</span>
                 </a>
             </li>
             <li>
@@ -120,18 +127,57 @@
     </nav>
 </header>
 <main class="main">
-<header class="page-header">
-    <h1>Categories</h1>
-</header>
 
-<ul class="terms-tags">
-            <li>
-                <a href="http://localhost:1313/categories/daily-notes/">Daily Notes <sup><strong><sup>6</sup></strong></sup> </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/categories/programming/">Programming <sup><strong><sup>4</sup></strong></sup> </a>
-            </li>
-</ul>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Mari Berkenalan dengan Dict Python
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-07-09 14:30:46 +0700 +07'>July 9, 2026</span>
+
+</div>
+    
+<div>Categories:
+    <a href="/categories/programming/">Programming</a></div>
+  </header> 
+  <div class="post-content md-content"><p><img alt="kamus" loading="lazy" src="/posts/mari-berkenalan-dengan-dict-python/dictionary.jpg"></p>
+<p>JSON cukup populer di dunia programming tak terkecuali pada bahasa pemrograman Python. Di Python ada tipe yang sangat mirip dengan JSON yaitu <strong>dict</strong>. Dict (singkatan dari Dictionary) terdiri dari pasangan <strong>key</strong> dan <strong>value</strong>. Contohnya seperti ini :</p>
+<pre tabindex="0"><code>myprofil = {
+	&#34;id&#34;: 1,
+	&#34;nama&#34;:&#34;Budi&#34;,
+	&#34;poin&#34;: 13998
+	}
+</code></pre><p>Pada contoh di atas, <strong>id</strong>, <strong>nama</strong>, dan <strong>poin</strong> adalah contoh key, sedangkan <strong>1</strong>, <strong>Budi</strong>, dan <strong>13998</strong> adalah value-nya.</p>
+<p>Untuk mengakses value dari suatu key Dict, gunakan <code>dict.get([nama_key])</code>. Untuk variabel <em>kamus</em> di atas, jika kita ingin mencari nilai dari <em>poin</em>, maka sintaksnya adalah :</p>
+<pre tabindex="0"><code>poinku = myprofil.get(&#34;poin&#34;) # menghasilkan : 13998
+</code></pre><p>Bagaimana jika kita ingin memunculkan seluruh key yang ada pada suatu dict?. Gunakan method <code>.keys()</code></p>
+<pre tabindex="0"><code>all_keys = myprofil.keys()
+
+print(all_keys) # akan menghasilkan : dict_keys([&#39;id&#39;, &#39;nama&#39;, &#39;poin&#39;])
+</code></pre><p>kemudian bisa kita lakukan pengulangan dengan <code>for</code> :</p>
+<pre tabindex="0"><code>for i in all_keys:
+	print(i)
+</code></pre><p>Selanjutnya, untuk menampilkan seluruh value, gunakan method <code>.values()</code> :</p>
+<pre tabindex="0"><code>myvalues = myprofil.values()
+
+print(myvalues) # hasil : dict_values([ 1, &#39;Budi&#39;, 13998]) 
+</code></pre><p>Ingin menampilkan seluruh pasangan key dan value, gunakan <code>.items()</code> :</p>
+<pre tabindex="0"><code>semua = myprofil.items()
+
+print(semua) # hasil : dict_items([(&#39;id&#39;, 1), (&#39;nama&#39;, &#39;Budi&#39;), (&#39;poin&#39;, 13988)])
+</code></pre><p>Lanjut ke part 2 ya &hellip;</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
     </main>
     
 <footer class="footer">
