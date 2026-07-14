@@ -6,8 +6,27 @@
     <description>Recent content in Posts on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jul 2026 14:30:46 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2026 20:06:00 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mengganti Teks pada Semua File dengan Bash</title>
+      <link>http://localhost:1313/posts/mengganti-teks-pada-semua-file-dengan-bash/</link>
+      <pubDate>Tue, 14 Jul 2026 20:06:00 +0700</pubDate>
+      <guid>http://localhost:1313/posts/mengganti-teks-pada-semua-file-dengan-bash/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;bash&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/mengganti-teks-pada-semua-file-dengan-bash/bash.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Suatu saat aku ingin menggabungkan isi seluruh file teks menjadi satu file teks baru. Hal ini terlaksana dengan menggunakan script &lt;em&gt;Python&lt;/em&gt; berikut :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import glob
+import shutil
+
+files = glob.glob(&amp;#34;*.txt&amp;#34;)
+
+with open(&amp;#34;gabungan.txt&amp;#34;, &amp;#34;wb&amp;#34;) as outfile:
+    for fname in files:
+        with open(fname, &amp;#34;rb&amp;#34;) as infile:
+            shutil.copyfileobj(infile, outfile)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Jika script di atas dijalankan pada suatu direktori maka isi semua file .txt yang ada pada direktori tersebut akan di-copy-past ke file gabungan.txt.&lt;/p&gt;
+&lt;p&gt;Namun ternyata ada banyak frasa/kata yang harus dihilangkan atau diganti. Jika hal ini dilakukan hanya pada gabungan.txt tanpa melakukan penggantian pada setiap file .txt di direktori, tentunya hal ini akan sia-sia. Jadi aku harus mencari cara mengganti teks terlarang pada setiap file .txt tanpa membuka file satu per satu. Untungnya setelah browsing aku temukan script &lt;em&gt;Bash&lt;/em&gt; berikut :&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Mari Berkenalan dengan Dict Python</title>
       <link>http://localhost:1313/posts/mari-berkenalan-dengan-dict-python/</link>
