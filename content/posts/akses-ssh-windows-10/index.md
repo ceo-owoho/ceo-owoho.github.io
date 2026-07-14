@@ -1,7 +1,7 @@
 +++
 date = '2026-06-22T21:46:07+07:00'
 draft = false
-title = 'Akses Ssh Windows 10'
+title = 'Akses SSH Windows 10'
 categories = ["Programming"]
 +++
 

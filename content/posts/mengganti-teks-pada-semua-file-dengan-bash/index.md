@@ -31,4 +31,10 @@ Bagaimana jika ingin menghilangkan karakter non-ASCII pada isi setiap file .txt?
 #!/bin/bash
 for file in *.txt;do [ -f "$file" ] && LC_ALL=C tr -d '\200-\377' < "$file" > "${file}.tmp" && mv "${file}.tmp" "$file";done
 ```
-simpan script di atas dengan ekstensi .sh kemudian jalankan di Terminal Linux atau Terminal Gygwin.
+simpan script di atas dengan ekstensi .sh kemudian jalankan di Terminal Linux atau Terminal Gygwin. Tuliskan dalam satu baris kode, jangan dipenggal!.
+
+Cara mencari file yang mempunyai teks tertentu dengan *Bash*. 
+Misal kita ingin mencari semua file .txt yang mempunyai teks *"Josjis"* di dalamnya. Berikut scriptnya :
+```
+find . -type f -name "*.txt" -exec grep -l "Josjis" {} +
+```
