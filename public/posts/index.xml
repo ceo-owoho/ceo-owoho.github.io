@@ -24,7 +24,7 @@ with open(&amp;#34;gabungan.txt&amp;#34;, &amp;#34;wb&amp;#34;) as outfile:
     for fname in files:
         with open(fname, &amp;#34;rb&amp;#34;) as infile:
             shutil.copyfileobj(infile, outfile)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Jika script di atas dijalankan pada suatu direktori maka isi semua file .txt yang ada pada direktori tersebut akan di-copy-past ke file gabungan.txt.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Jika script di atas dijalankan pada suatu direktori maka isi semua file .txt yang ada pada direktori tersebut akan di-copy-paste ke file gabungan.txt.&lt;/p&gt;
 &lt;p&gt;Namun ternyata ada banyak frasa/kata yang harus dihilangkan atau diganti. Jika hal ini dilakukan hanya pada gabungan.txt tanpa melakukan penggantian pada setiap file .txt di direktori, tentunya hal ini akan sia-sia. Jadi aku harus mencari cara mengganti teks terlarang pada setiap file .txt tanpa membuka file satu per satu. Untungnya setelah browsing aku temukan script &lt;em&gt;Bash&lt;/em&gt; berikut :&lt;/p&gt;</description>
     </item>
     <item>
@@ -43,7 +43,7 @@ with open(&amp;#34;gabungan.txt&amp;#34;, &amp;#34;wb&amp;#34;) as outfile:
 &lt;p&gt;Untuk mengakses value dari suatu key Dict, gunakan &lt;code&gt;dict.get([nama_key])&lt;/code&gt;. Untuk variabel &lt;em&gt;kamus&lt;/em&gt; di atas, jika kita ingin mencari nilai dari &lt;em&gt;poin&lt;/em&gt;, maka sintaksnya adalah :&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Akses Ssh Windows 10</title>
+      <title>Akses SSH Windows 10</title>
       <link>http://localhost:1313/posts/akses-ssh-windows-10/</link>
       <pubDate>Mon, 22 Jun 2026 21:46:07 +0700</pubDate>
       <guid>http://localhost:1313/posts/akses-ssh-windows-10/</guid>

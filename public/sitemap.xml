@@ -3,18 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-07-14T20:06:00+07:00</lastmod>
+    <lastmod>2026-07-15T12:32:33+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-07-14T20:06:00+07:00</lastmod>
+    <lastmod>2026-07-15T12:32:33+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/mengganti-teks-pada-semua-file-dengan-bash/</loc>
-    <lastmod>2026-07-14T20:06:00+07:00</lastmod>
+    <loc>http://localhost:1313/posts/manajemen-file-dengan-python/</loc>
+    <lastmod>2026-07-15T12:32:33+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-07-14T20:06:00+07:00</lastmod>
+    <lastmod>2026-07-15T12:32:33+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/programming/</loc>
+    <lastmod>2026-07-15T12:32:33+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/mengganti-teks-pada-semua-file-dengan-bash/</loc>
     <lastmod>2026-07-14T20:06:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/mari-berkenalan-dengan-dict-python/</loc>

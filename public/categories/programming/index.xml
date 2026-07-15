@@ -43,7 +43,7 @@ with open(&amp;#34;gabungan.txt&amp;#34;, &amp;#34;wb&amp;#34;) as outfile:
 &lt;p&gt;Untuk mengakses value dari suatu key Dict, gunakan &lt;code&gt;dict.get([nama_key])&lt;/code&gt;. Untuk variabel &lt;em&gt;kamus&lt;/em&gt; di atas, jika kita ingin mencari nilai dari &lt;em&gt;poin&lt;/em&gt;, maka sintaksnya adalah :&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Akses Ssh Windows 10</title>
+      <title>Akses SSH Windows 10</title>
       <link>http://localhost:1313/posts/akses-ssh-windows-10/</link>
       <pubDate>Mon, 22 Jun 2026 21:46:07 +0700</pubDate>
       <guid>http://localhost:1313/posts/akses-ssh-windows-10/</guid>

@@ -165,8 +165,11 @@ with open(&#34;gabungan.txt&#34;, &#34;wb&#34;) as outfile:
 <p>Bagaimana jika ingin menghilangkan karakter non-ASCII pada isi setiap file .txt? Begini script Bash-nya :</p>
 <pre tabindex="0"><code>#!/bin/bash
 for file in *.txt;do [ -f &#34;$file&#34; ] &amp;&amp; LC_ALL=C tr -d &#39;\200-\377&#39; &lt; &#34;$file&#34; &gt; &#34;${file}.tmp&#34; &amp;&amp; mv &#34;${file}.tmp&#34; &#34;$file&#34;;done
-</code></pre><p>simpan script di atas dengan ekstensi .sh kemudian jalankan di Terminal Linux atau Terminal Gygwin.</p>
-
+</code></pre><p>simpan script di atas dengan ekstensi .sh kemudian jalankan di Terminal Linux atau Terminal Gygwin. Tuliskan dalam satu baris kode, jangan dipenggal!.</p>
+<p>Cara mencari file yang mempunyai teks tertentu dengan <em>Bash</em>.
+Misal kita ingin mencari semua file .txt yang mempunyai teks <em>&ldquo;Josjis&rdquo;</em> di dalamnya. Berikut scriptnya :</p>
+<pre tabindex="0"><code>find . -type f -name &#34;*.txt&#34; -exec grep -l &#34;Josjis&#34; {} +
+</code></pre>
 
   </div>
 

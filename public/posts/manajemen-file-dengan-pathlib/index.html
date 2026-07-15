@@ -5,13 +5,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Akses SSH Windows 10 | CEO&#39;s Notes</title>
+<title>Manajemen File dengan Pathlib | CEO&#39;s Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="
-Malam ini pas ngotak-atik komputer PCku tiba-tiba terlintas pikiran bagaimana cara menjadikan Windows 10 sebagai server SSH dan mengaksesnya dari perankat lain, misal : Termux di hape. Selama ini aku telah berhasil menjadikan hapeku sebagai server SSH melalui sintaks sshd (tentu dengan instalasi rumit sebelumnya..).
-Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang tentunya cukup uzur untuk sebuah PC di tahun 2026, namun setelah browsing beberapa saat, ketemulah caranya :">
+Manajemen file pada Python sebenarnya bisa dilakukan dengan beberapa modul. Salah satunya, kita bisa menggunakan modul Pathlib.
+Pertama, impor dulu modul Pathlib :
+from pathlib import Path
+Misalnya kita punya file dengan path lengkap : D:\folder_utama\sub_dir\myfile.jpg. Bagaimana kita dapat menentukan path direktori, nama file, dan ekstensinya?.
+Begini caranya :
+path_asal = &#34;D:\folder_utama\sub_dir\myfile.jpg&#34;
+mypath = Path(path_asal)
+
+print(mypath.nama) # ini akan menghasilkan : nama file dan ekstensi (myfile.jpg)
+print(mypath.stem) # ini akan menhasilkan nama file saja (myfile)
+print(mypath.suffix) # memhasilkan ekstensi saja, dengan titik (.jpg)
+Bagaimana jika ingin menggabungkan path dengan string?, gampang gunakan slash (&quot;/&quot;) :">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/akses-ssh-windows-10/">
+<link rel="canonical" href="http://localhost:1313/posts/manajemen-file-dengan-python/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -20,7 +30,7 @@ Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang te
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/akses-ssh-windows-10/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/manajemen-file-dengan-python/">
 <noscript>
     <style>
         #theme-toggle,
@@ -126,43 +136,37 @@ Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang te
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Akses SSH Windows 10
+      Manajemen File dengan Pathlib
     </h1>
     <div class="post-meta">
 
-<span title='2026-06-22 21:46:07 +0700 +07'>June 22, 2026</span>
+<span title='2026-07-15 12:32:33 +0700 +07'>July 15, 2026</span>
 
 </div>
     
 <div>Categories:
     <a href="/categories/programming/">Programming</a></div>
   </header> 
-  <div class="post-content md-content"><p><img alt="termux-on-win10" loading="lazy" src="/posts/akses-ssh-windows-10/ssh_win10.jpg"></p>
-<p>Malam ini pas ngotak-atik komputer PCku tiba-tiba terlintas pikiran <em>bagaimana cara menjadikan Windows 10 sebagai server SSH dan mengaksesnya dari perankat lain, misal : Termux di hape</em>. Selama ini aku telah berhasil menjadikan hapeku sebagai server SSH melalui sintaks <strong>sshd</strong> (<em>tentu dengan instalasi rumit sebelumnya..</em>).</p>
-<p>Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang tentunya cukup uzur untuk sebuah PC di tahun 2026, namun setelah browsing beberapa saat, ketemulah caranya :</p>
-<ol>
-<li>Buka aplikasi <strong>Windows PowerShell</strong> <em>as Administrator</em> dan jalankan sintaks ini <code>Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0</code>.</li>
-<li>Tunggu proses hingga muncul tampilan berikut :
-<img alt="instalasi ssh" loading="lazy" src="/posts/akses-ssh-windows-10/instal_ssh.jpg"></li>
-<li>Selanjutnya ketikkan sintaks <code>Start-Service sshd</code></li>
-<li>Kemudian ketik sintaks <code>Set-Service -Name sshd -StartupType 'Automatic'</code></li>
-<li>Ketik sintaks tambahan <code>New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22</code></li>
-<li>Kursor pada layar Windows PowerShell akan berkedip-kedip</li>
-<li>Untuk mengakses ssh dari Termux, silakan ketikkan sintaks <code>ssh [username pc/laptop]@ip_pc</code>. Jika misal diketahui username Windows adalah <strong>budi</strong> dan ip PC adalah <strong>12.345.678.99</strong> (gunakan sintaks <code>ipconfig</code> pada PowerShell atau Command Prompt untuk mencari ip), maka untuk mengaksess ssh server di PC Windows 10 tadi adalah dengan mengetikkan kode berikut pada Termux :</li>
-</ol>
-<p><code>ssh budi@12.345.678.99</code></p>
-<ol start="8">
-<li>Akan ada pertanyaan konfirmasi, pilih/ketik <strong>yes</strong></li>
-<li>Kemudian kita diminta mengisikan password yaitu password dari login Windows kita</li>
-<li>Jika berhasil maka pada tampilan Termux kita akan muncul mirip sekali dengan tampilan Command Prompt berserta struktur direktori dan berkas-berkasnya</li>
-</ol>
-<p><em>Catatan :</em></p>
-<ul>
-<li><em>Pastikan user login yang digunakan mempunyai password, karena jika tidak, kode di atas tidak akan berjalan.</em></li>
-<li><em>Untuk saling terhubung antara Termux hape dan PC server ssh, perlu dipastikan keduanya berada pada jaringan yang sama. Misal : keduanya menggunakan wifi sama atau berada pada jaringan LAN yang sama.</em></li>
-</ul>
-<p>Demikian</p>
+  <div class="post-content md-content"><p><img alt="python" loading="lazy" src="/posts/manajemen-file-dengan-python/python.png">
+Manajemen file pada Python sebenarnya bisa dilakukan dengan beberapa modul. Salah satunya, kita bisa menggunakan modul <strong>Pathlib</strong>.
+Pertama, impor dulu modul Pathlib :</p>
+<pre tabindex="0"><code>from pathlib import Path
+</code></pre><p>Misalnya kita punya file dengan path lengkap : <em>D:\folder_utama\sub_dir\myfile.jpg</em>. Bagaimana kita dapat menentukan path direktori, nama file, dan ekstensinya?.
+Begini caranya :</p>
+<pre tabindex="0"><code>path_asal = &#34;D:\folder_utama\sub_dir\myfile.jpg&#34;
+mypath = Path(path_asal)
 
+print(mypath.nama) # ini akan menghasilkan : nama file dan ekstensi (myfile.jpg)
+print(mypath.stem) # ini akan menhasilkan nama file saja (myfile)
+print(mypath.suffix) # memhasilkan ekstensi saja, dengan titik (.jpg)
+</code></pre><p>Bagaimana jika ingin menggabungkan path dengan string?, gampang gunakan slash (&quot;/&quot;) :</p>
+<pre tabindex="0"><code>mydir = &#34;data/2026/baru/&#34;
+myfile = &#34;dir/123.txt&#34;
+
+newfile = f&#34;{Path(mydir)}/{Path(myfile)}&#34; 
+
+print(newfile) # akan menghasilkan &#34;data/2026/baru/dir/123.txt&#34;
+</code></pre>
 
   </div>
 
