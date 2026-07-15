@@ -128,6 +128,39 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Arti if _name_ == &#34;__main__&#34; pada Script Python
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Sebenarnya sudah cukup sering aku menemui sintaks if __name__ == &#39;__main__&#39; : di banyak script Python. Biasanya berada di bagian paling bawah sebelum kode berakhir. Namun baru akhir-akhir ini aku memahami arti dan cara penggunaannya. Secara singkat menurutku fungsi sintaks itu adalah sebagai batas antara :
+script yang akan dijalankan dari file lain dengan cara di-import; dengan script yang akan dijalankan langsung dari filenya. Atau ringkasnya : script di bawah sintaks ini tidak akan dijalankan saat di-import oleh file lain. Agak susah dipahami ya?, aku contohin pakai script langsung saja ya. Misalnya pada file modul_kali_tambah.py berisi seperti ini ;
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-07-15 19:52:52 +0700 +07'>July 15, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Arti if _name_ == &#34;__main__&#34; pada Script Python" href="http://localhost:1313/posts/arti-if-name-equal-main-di-script-python/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Manajemen File dengan Pathlib
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Manajemen file pada Python sebenarnya bisa dilakukan dengan beberapa modul. Salah satunya, kita bisa menggunakan modul Pathlib. Pertama, impor dulu modul Pathlib :
+from pathlib import Path Misalnya kita punya file dengan path lengkap : D:\folder_utama\sub_dir\myfile.jpg. Bagaimana kita dapat menentukan path direktori, nama file, dan ekstensinya?. Begini caranya :
+path_asal = &#34;D:\folder_utama\sub_dir\myfile.jpg&#34;mypath = Path(path_asal)print(mypath.nama) # ini akan menghasilkan : nama file dan ekstensi (myfile.jpg)print(mypath.stem) # ini akan menhasilkan nama file saja (myfile)print(mypath.suffix) # memhasilkan ekstensi saja, dengan titik (.jpg) Bagaimana jika ingin menggabungkan path dengan string?, gampang gunakan slash (&#34;/&#34;) :
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-07-15 12:32:33 +0700 +07'>July 15, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Manajemen File dengan Pathlib" href="http://localhost:1313/posts/manajemen-file-dengan-pathlib/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Mengganti Teks pada Semua File dengan Bash
     </h2>
   </header>

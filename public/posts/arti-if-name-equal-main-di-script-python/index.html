@@ -5,11 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Categories | CEO&#39;s Notes</title>
+<title>Arti if _name_ == &#34;__main__&#34; pada Script Python | CEO&#39;s Notes</title>
 <meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="description" content="
+Sebenarnya sudah cukup sering aku menemui sintaks if __name__ == &#39;__main__&#39; : di banyak script Python. Biasanya berada di bagian paling bawah sebelum kode berakhir. Namun baru akhir-akhir ini aku memahami arti dan cara penggunaannya. Secara singkat menurutku fungsi sintaks itu adalah sebagai batas antara :
+
+script yang akan dijalankan dari file lain dengan cara di-import; dengan
+script yang akan dijalankan langsung dari filenya.
+Atau ringkasnya : script di bawah sintaks ini tidak akan dijalankan saat di-import oleh file lain.
+Agak susah dipahami ya?, aku contohin pakai script langsung saja ya.
+
+Misalnya pada file modul_kali_tambah.py berisi seperti ini ;">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/categories/">
+<link rel="canonical" href="http://localhost:1313/posts/arti-if-name-equal-main-di-script-python/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +26,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/categories/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/arti-if-name-equal-main-di-script-python/">
 <noscript>
     <style>
         #theme-toggle,
@@ -67,7 +74,7 @@
 
 </script>
 </head>
-<body class="list" id="top">
+<body id="top">
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
@@ -108,7 +115,7 @@
             </li>
             <li>
                 <a href="http://localhost:1313/categories/" title="Kategori">
-                    <span class="active">Kategori</span>
+                    <span>Kategori</span>
                 </a>
             </li>
             <li>
@@ -120,18 +127,66 @@
     </nav>
 </header>
 <main class="main">
-<header class="page-header">
-    <h1>Categories</h1>
-</header>
 
-<ul class="terms-tags">
-            <li>
-                <a href="http://localhost:1313/categories/daily-notes/">Daily Notes <sup><strong><sup>6</sup></strong></sup> </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/categories/programming/">Programming <sup><strong><sup>7</sup></strong></sup> </a>
-            </li>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Arti if _name_ == &#34;__main__&#34; pada Script Python
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-07-15 19:52:52 +0700 +07'>July 15, 2026</span>
+
+</div>
+    
+<div>Categories:
+    <a href="/categories/programming/">Programming</a></div>
+  </header> 
+  <div class="post-content md-content"><p><img alt="python" loading="lazy" src="/posts/arti-if-name-equal-main-di-script-python/python.png">
+Sebenarnya sudah cukup sering aku menemui sintaks <code>if __name__ == '__main__' :</code> di banyak script Python. Biasanya berada di bagian paling bawah sebelum kode berakhir. Namun baru akhir-akhir ini aku memahami arti dan cara penggunaannya. Secara singkat menurutku fungsi sintaks itu adalah sebagai batas antara :</p>
+<ul>
+<li>script yang akan dijalankan dari file lain dengan cara di-import; dengan</li>
+<li>script yang akan dijalankan langsung dari filenya.
+Atau ringkasnya : script di bawah sintaks ini tidak akan dijalankan saat di-import oleh file lain.
+Agak susah dipahami ya?, aku contohin pakai script langsung saja ya.</li>
 </ul>
+<p>Misalnya pada file <em>modul_kali_tambah.py</em> berisi seperti ini ;</p>
+<pre tabindex="0"><code>def kalikan(a: int, b: int)-&gt;int :
+	return a * b
+
+def tambahkan(a: int, b: int)-&gt;int :
+	return a + b
+
+if __name__==&#34;__main__&#34;:
+	print(&#34;=======Run from the Script file=======&#34;)
+	print(f&#34;Hasil perkalian dari 20 x 5 adalah {kalikan(20, 5)}&#34;)
+	print(f&#34;Hasil Penjumlahan dari 35 + 65 adalah {tambahkan(35, 65)}&#34;)
+</code></pre><p>Selanjutnya ada file <em>importer.py</em> yang berisi :</p>
+<pre tabindex="0"><code>from modul_kali_tambah import kalikan, tambahkan
+
+print(&#34;===Run method by importing from another Script code===&#34;)
+print(f&#34;Hasil perkalian dari 45 x 4 adalah {kalikan(45, 4)}&#34;)
+print(f&#34;Hasil Penjumlahan dari 85 + 25 adalah {tambahkan(85, 25)}&#34;)
+</code></pre><p>Dari script <em>importer.py</em> kita tahu bahwa file ini meng-impor method kalikan dan method tambahkan dari file <em>modul_kali_tambah.py</em>. Saat file <em>importer.py</em> dijalankan akan menghasilkan :
+<img alt="impor" loading="lazy" src="/posts/arti-if-name-equal-main-di-script-python/hasil_impor.jpg"></p>
+<p>artinya script pada file modul_kali_tambah.py yang berada di bawah <code>if __name__==&quot;__main__&quot;:</code> yaitu :</p>
+<pre tabindex="0"><code>print(&#34;=======Run from the Script file=======&#34;)
+print(f&#34;Hasil perkalian dari 20 x 5 adalah {kalikan(20, 5)}&#34;)
+print(f&#34;Hasil Penjumlahan dari 35 + 65 adalah {tambahkan(35, 65)}&#34;)
+</code></pre><p><strong>tidak dijalankan</strong>.</p>
+<p>Perhatikan jika file <em>modul_kali_tambah.py</em> kita jalankan langsung hasilnya adalah :
+<img alt="sendiri" loading="lazy" src="/posts/arti-if-name-equal-main-di-script-python/hasil_sendiri.jpg"></p>
+<p>Ini, bagiku, sangat berguna di saat kita ingin method yang ada di suatu file dapat di-impor oleh file lain sehingga kita tidak perlu menuliskan script method yang sama berulang pada file yang memerlukannya.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
     </main>
     
 <footer class="footer">

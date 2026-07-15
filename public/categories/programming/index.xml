@@ -6,8 +6,42 @@
     <description>Recent content in Programming on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jul 2026 20:06:00 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2026 19:52:52 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arti if _name_ == &#34;__main__&#34; pada Script Python</title>
+      <link>http://localhost:1313/posts/arti-if-name-equal-main-di-script-python/</link>
+      <pubDate>Wed, 15 Jul 2026 19:52:52 +0700</pubDate>
+      <guid>http://localhost:1313/posts/arti-if-name-equal-main-di-script-python/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;python&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/arti-if-name-equal-main-di-script-python/python.png&#34;&gt;
+Sebenarnya sudah cukup sering aku menemui sintaks &lt;code&gt;if __name__ == &#39;__main__&#39; :&lt;/code&gt; di banyak script Python. Biasanya berada di bagian paling bawah sebelum kode berakhir. Namun baru akhir-akhir ini aku memahami arti dan cara penggunaannya. Secara singkat menurutku fungsi sintaks itu adalah sebagai batas antara :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;script yang akan dijalankan dari file lain dengan cara di-import; dengan&lt;/li&gt;
+&lt;li&gt;script yang akan dijalankan langsung dari filenya.
+Atau ringkasnya : script di bawah sintaks ini tidak akan dijalankan saat di-import oleh file lain.
+Agak susah dipahami ya?, aku contohin pakai script langsung saja ya.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Misalnya pada file &lt;em&gt;modul_kali_tambah.py&lt;/em&gt; berisi seperti ini ;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Manajemen File dengan Pathlib</title>
+      <link>http://localhost:1313/posts/manajemen-file-dengan-pathlib/</link>
+      <pubDate>Wed, 15 Jul 2026 12:32:33 +0700</pubDate>
+      <guid>http://localhost:1313/posts/manajemen-file-dengan-pathlib/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;python&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/manajemen-file-dengan-pathlib/python.png&#34;&gt;
+Manajemen file pada Python sebenarnya bisa dilakukan dengan beberapa modul. Salah satunya, kita bisa menggunakan modul &lt;strong&gt;Pathlib&lt;/strong&gt;.
+Pertama, impor dulu modul Pathlib :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;from pathlib import Path
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Misalnya kita punya file dengan path lengkap : &lt;em&gt;D:\folder_utama\sub_dir\myfile.jpg&lt;/em&gt;. Bagaimana kita dapat menentukan path direktori, nama file, dan ekstensinya?.
+Begini caranya :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;path_asal = &amp;#34;D:\folder_utama\sub_dir\myfile.jpg&amp;#34;
+mypath = Path(path_asal)
+
+print(mypath.nama) # ini akan menghasilkan : nama file dan ekstensi (myfile.jpg)
+print(mypath.stem) # ini akan menhasilkan nama file saja (myfile)
+print(mypath.suffix) # memhasilkan ekstensi saja, dengan titik (.jpg)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Bagaimana jika ingin menggabungkan path dengan string?, gampang gunakan slash (&amp;quot;/&amp;quot;) :&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Mengganti Teks pada Semua File dengan Bash</title>
       <link>http://localhost:1313/posts/mengganti-teks-pada-semua-file-dengan-bash/</link>
