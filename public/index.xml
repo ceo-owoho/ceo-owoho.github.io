@@ -6,8 +6,23 @@
     <description>Recent content on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jul 2026 14:30:46 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 08:47:33 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Curl di Windows Command Prompt</title>
+      <link>http://localhost:1313/posts/curl-di-windows-command-prompt/</link>
+      <pubDate>Mon, 24 Aug 2026 08:47:33 +0700</pubDate>
+      <guid>http://localhost:1313/posts/curl-di-windows-command-prompt/</guid>
+      <description>&lt;p&gt;Secara umum, request POST dapat dilakukan format :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;curl -X POST https://example.com \
+     -H &amp;#34;Content-Type: application/json&amp;#34; \
+     -d &amp;#39;{&amp;#34;name&amp;#34;: &amp;#34;John Doe&amp;#34;, &amp;#34;email&amp;#34;: &amp;#34;john@example.com&amp;#34;}&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;namun perlu diperhatikan bahwa sintaks di atas tidak berlaku pada Windows command-prompt. Sebagai gantinya gunakan format seperti ini :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;curl -X -H &amp;#34;Content-Type: application/json&amp;#34; ^
+     -d &amp;#34;{\&amp;#34;name\&amp;#34;: \&amp;#34;John Doe\&amp;#34;, \&amp;#34;email\&amp;#34;: \&amp;#34;john@example.com\&amp;#34;}&amp;#34; ^
+	 POST https://example.com
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;gunakan tanda &lt;em&gt;caret (caping)&lt;/em&gt; untuk sintaks multi-line pada akhir baris &lt;em&gt;kecuali baris terakhir&lt;/em&gt; dan gunakan &lt;em&gt;escape character backslash (&amp;quot;&amp;quot;)&lt;/em&gt; untuk kutip ganda format JSON yang dikirim.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Mari Berkenalan dengan Dict Python</title>
       <link>http://localhost:1313/posts/mari-berkenalan-dengan-dict-python/</link>
@@ -15,11 +30,13 @@
       <guid>http://localhost:1313/posts/mari-berkenalan-dengan-dict-python/</guid>
       <description>&lt;p&gt;&lt;img alt=&#34;kamus&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/mari-berkenalan-dengan-dict-python/dictionary.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;JSON cukup populer di dunia programming tak terkecuali pada bahasa pemrograman Python. Di Python ada tipe yang sangat mirip dengan JSON yaitu &lt;strong&gt;dict&lt;/strong&gt;. Dict (singkatan dari Dictionary) terdiri dari pasangan &lt;strong&gt;key&lt;/strong&gt; dan &lt;strong&gt;value&lt;/strong&gt;. Contohnya seperti ini :&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;kamus = {
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;myprofil = {
 	&amp;#34;id&amp;#34;: 1,
-	&amp;#34;nama&amp;#34;:&amp;#34;Budi&amp;#34;
+	&amp;#34;nama&amp;#34;:&amp;#34;Budi&amp;#34;,
+	&amp;#34;poin&amp;#34;: 13998
 	}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Pada contoh di atas, &lt;strong&gt;id&lt;/strong&gt; dan &lt;strong&gt;nama&lt;/strong&gt; adalah contoh key, sedangkan &lt;strong&gt;1&lt;/strong&gt; dan &lt;strong&gt;Budi&lt;/strong&gt; adalah value-nya. Dict bisa berisi lebih dari satu pasang id dan nama. Seperti ini :&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Pada contoh di atas, &lt;strong&gt;id&lt;/strong&gt;, &lt;strong&gt;nama&lt;/strong&gt;, dan &lt;strong&gt;poin&lt;/strong&gt; adalah contoh key, sedangkan &lt;strong&gt;1&lt;/strong&gt;, &lt;strong&gt;Budi&lt;/strong&gt;, dan &lt;strong&gt;13998&lt;/strong&gt; adalah value-nya.&lt;/p&gt;
+&lt;p&gt;Untuk mengakses value dari suatu key Dict, gunakan &lt;code&gt;dict.get([nama_key])&lt;/code&gt;. Untuk variabel &lt;em&gt;kamus&lt;/em&gt; di atas, jika kita ingin mencari nilai dari &lt;em&gt;poin&lt;/em&gt;, maka sintaksnya adalah :&lt;/p&gt;</description>
     </item>
     <item>
       <title>Akses Ssh Windows 10</title>

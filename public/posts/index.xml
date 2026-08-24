@@ -6,8 +6,23 @@
     <description>Recent content in Posts on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jul 2026 14:30:46 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 08:47:33 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Curl di Windows Command Prompt</title>
+      <link>http://localhost:1313/posts/curl-di-windows-command-prompt/</link>
+      <pubDate>Mon, 24 Aug 2026 08:47:33 +0700</pubDate>
+      <guid>http://localhost:1313/posts/curl-di-windows-command-prompt/</guid>
+      <description>&lt;p&gt;Secara umum, request POST dapat dilakukan format :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;curl -X POST https://example.com \
+     -H &amp;#34;Content-Type: application/json&amp;#34; \
+     -d &amp;#39;{&amp;#34;name&amp;#34;: &amp;#34;John Doe&amp;#34;, &amp;#34;email&amp;#34;: &amp;#34;john@example.com&amp;#34;}&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;namun perlu diperhatikan bahwa sintaks di atas tidak berlaku pada Windows command-prompt. Sebagai gantinya gunakan format seperti ini :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;curl -X -H &amp;#34;Content-Type: application/json&amp;#34; ^
+     -d &amp;#34;{\&amp;#34;name\&amp;#34;: \&amp;#34;John Doe\&amp;#34;, \&amp;#34;email\&amp;#34;: \&amp;#34;john@example.com\&amp;#34;}&amp;#34; ^
+	 POST https://example.com
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;gunakan tanda &lt;em&gt;caret&lt;/em&gt; &lt;em&gt;(caping)&lt;/em&gt; untuk sintaks multi-line pada akhir baris kecuali baris terakhir dan gunakan &lt;em&gt;escape&lt;/em&gt; &lt;em&gt;character&lt;/em&gt; : &lt;em&gt;backslash&lt;/em&gt; untuk kutip ganda format JSON yang dikirim.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Mari Berkenalan dengan Dict Python</title>
       <link>http://localhost:1313/posts/mari-berkenalan-dengan-dict-python/</link>

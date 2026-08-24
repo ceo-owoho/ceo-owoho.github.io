@@ -5,11 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Categories | CEO&#39;s Notes</title>
+<title>Curl di Windows Command Prompt | CEO&#39;s Notes</title>
 <meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="description" content="Secara umum, request POST dapat dilakukan format :
+curl -X POST https://example.com \
+     -H &#34;Content-Type: application/json&#34; \
+     -d &#39;{&#34;name&#34;: &#34;John Doe&#34;, &#34;email&#34;: &#34;john@example.com&#34;}&#39;
+namun perlu diperhatikan bahwa sintaks di atas tidak berlaku pada Windows command-prompt. Sebagai gantinya gunakan format seperti ini :
+curl -X -H &#34;Content-Type: application/json&#34; ^
+     -d &#34;{\&#34;name\&#34;: \&#34;John Doe\&#34;, \&#34;email\&#34;: \&#34;john@example.com\&#34;}&#34; ^
+	 POST https://example.com
+gunakan tanda caret (caping) untuk sintaks multi-line pada akhir baris kecuali baris terakhir dan gunakan escape character backslash (&quot;&quot;) untuk kutip ganda format JSON yang dikirim.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/categories/">
+<link rel="canonical" href="http://localhost:1313/posts/curl-di-windows-command-prompt/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +26,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/categories/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/curl-di-windows-command-prompt/">
 <noscript>
     <style>
         #theme-toggle,
@@ -67,7 +74,7 @@
 
 </script>
 </head>
-<body class="list" id="top">
+<body id="top">
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
@@ -108,7 +115,7 @@
             </li>
             <li>
                 <a href="http://localhost:1313/categories/" title="Kategori">
-                    <span class="active">Kategori</span>
+                    <span>Kategori</span>
                 </a>
             </li>
             <li>
@@ -120,18 +127,46 @@
     </nav>
 </header>
 <main class="main">
-<header class="page-header">
-    <h1>Categories</h1>
-</header>
 
-<ul class="terms-tags">
-            <li>
-                <a href="http://localhost:1313/categories/daily-notes/">Daily Notes <sup><strong><sup>6</sup></strong></sup> </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/categories/programming/">Programming <sup><strong><sup>5</sup></strong></sup> </a>
-            </li>
-</ul>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Curl di Windows Command Prompt
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-08-24 08:47:33 +0700 +07'>August 24, 2026</span>
+
+</div>
+    
+<div>Categories:
+    <a href="/categories/programming/">Programming</a></div>
+  </header> 
+  <div class="post-content md-content"><p>Secara umum, request POST dapat dilakukan format :</p>
+<pre tabindex="0"><code>curl -X POST https://example.com \
+     -H &#34;Content-Type: application/json&#34; \
+     -d &#39;{&#34;name&#34;: &#34;John Doe&#34;, &#34;email&#34;: &#34;john@example.com&#34;}&#39;
+</code></pre><p>namun perlu diperhatikan bahwa sintaks di atas tidak berlaku pada Windows command-prompt. Sebagai gantinya gunakan format seperti ini :</p>
+<pre tabindex="0"><code>curl -X -H &#34;Content-Type: application/json&#34; ^
+     -d &#34;{\&#34;name\&#34;: \&#34;John Doe\&#34;, \&#34;email\&#34;: \&#34;john@example.com\&#34;}&#34; ^
+	 POST https://example.com
+</code></pre><p>gunakan tanda <em>caret (caping)</em> untuk sintaks multi-line pada akhir baris <em>kecuali baris terakhir</em> dan gunakan <em>escape character backslash (&quot;&quot;)</em> untuk kutip ganda format JSON yang dikirim.</p>
+<p>Untuk POST dengan <strong>Bearer Token</strong> :</p>
+<pre tabindex="0"><code>curl -X -H &#34;Content-Type: application/json&#34; ^
+	-H &#34;Authorization: Bearer [tokennya]&#34; ^
+    -d &#34;{\&#34;name\&#34;: \&#34;John Doe\&#34;, \&#34;email\&#34;: \&#34;john@example.com\&#34;}&#34; ^
+	 POST https://example.com
+</code></pre><p>Demikianlah</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
     </main>
     
 <footer class="footer">
