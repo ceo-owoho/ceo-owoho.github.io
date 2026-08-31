@@ -134,13 +134,64 @@
   <div class="entry-content">
     <p>Secara umum, request POST dapat dilakukan format :
 curl -X POST https://example.com \-H &#34;Content-Type: application/json&#34; \-d &#39;{&#34;name&#34;: &#34;John Doe&#34;, &#34;email&#34;: &#34;john@example.com&#34;}&#39; namun perlu diperhatikan bahwa sintaks di atas tidak berlaku pada Windows command-prompt. Sebagai gantinya gunakan format seperti ini :
-curl -X -H &#34;Content-Type: application/json&#34; ^-d &#34;{\&#34;name\&#34;: \&#34;John Doe\&#34;, \&#34;email\&#34;: \&#34;john@example.com\&#34;}&#34; ^POST https://example.com gunakan tanda caret (caping) untuk sintaks multi-line pada akhir baris kecuali baris terakhir dan gunakan escape character : backslash untuk kutip ganda format JSON yang dikirim.
-</p>
+curl -X -H &#34;Content-Type: application/json&#34; ^-d &#34;{\&#34;name\&#34;: \&#34;John Doe\&#34;, \&#34;email\&#34;: \&#34;john@example.com\&#34;}&#34; ^POST https://example.com gunakan tanda caret (caping) untuk sintaks multi-line pada akhir baris kecuali baris terakhir dan gunakan escape character backslash (&#34;&#34;) untuk kutip ganda format JSON yang dikirim.
+...</p>
   </div>
   <footer class="entry-footer">
 
 <span title='2026-08-24 08:47:33 +0700 +07'>August 24, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Curl di Windows Command Prompt" href="http://localhost:1313/posts/curl-di-windows-command-prompt/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Arti if _name_ == &#34;__main__&#34; pada Script Python
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Sebenarnya sudah cukup sering aku menemui sintaks if __name__ == &#39;__main__&#39; : di banyak script Python. Biasanya berada di bagian paling bawah sebelum kode berakhir. Namun baru akhir-akhir ini aku memahami arti dan cara penggunaannya. Secara singkat menurutku fungsi sintaks itu adalah sebagai batas antara :
+script yang akan dijalankan dari file lain dengan cara di-import; dengan script yang akan dijalankan langsung dari filenya. Atau ringkasnya : script di bawah sintaks ini tidak akan dijalankan saat di-import oleh file lain. Agak susah dipahami ya?, aku contohin pakai script langsung saja ya. Misalnya pada file modul_kali_tambah.py berisi seperti ini ;
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-07-15 19:52:52 +0700 +07'>July 15, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Arti if _name_ == &#34;__main__&#34; pada Script Python" href="http://localhost:1313/posts/arti-if-name-equal-main-di-script-python/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Manajemen File dengan Pathlib
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Manajemen file pada Python sebenarnya bisa dilakukan dengan beberapa modul. Salah satunya, kita bisa menggunakan modul Pathlib. Pertama, impor dulu modul Pathlib :
+from pathlib import Path Misalnya kita punya file dengan path lengkap : D:\folder_utama\sub_dir\myfile.jpg. Bagaimana kita dapat menentukan path direktori, nama file, dan ekstensinya?. Begini caranya :
+path_asal = &#34;D:\folder_utama\sub_dir\myfile.jpg&#34;mypath = Path(path_asal)print(mypath.nama) # ini akan menghasilkan : nama file dan ekstensi (myfile.jpg)print(mypath.stem) # ini akan menhasilkan nama file saja (myfile)print(mypath.suffix) # memhasilkan ekstensi saja, dengan titik (.jpg) Bagaimana jika ingin menggabungkan path dengan string?, gampang gunakan slash (&#34;/&#34;) :
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-07-15 12:32:33 +0700 +07'>July 15, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Manajemen File dengan Pathlib" href="http://localhost:1313/posts/manajemen-file-dengan-pathlib/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mengganti Teks pada Semua File dengan Bash
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>
+Suatu saat aku ingin menggabungkan isi seluruh file teks menjadi satu file teks baru. Hal ini terlaksana dengan menggunakan script Python berikut :
+import globimport shutilfiles = glob.glob(&#34;*.txt&#34;)with open(&#34;gabungan.txt&#34;, &#34;wb&#34;) as outfile:for fname in files:with open(fname, &#34;rb&#34;) as infile:shutil.copyfileobj(infile, outfile) Jika script di atas dijalankan pada suatu direktori maka isi semua file .txt yang ada pada direktori tersebut akan di-copy-paste ke file gabungan.txt.
+Namun ternyata ada banyak frasa/kata yang harus dihilangkan atau diganti. Jika hal ini dilakukan hanya pada gabungan.txt tanpa melakukan penggantian pada setiap file .txt di direktori, tentunya hal ini akan sia-sia. Jadi aku harus mencari cara mengganti teks terlarang pada setiap file .txt tanpa membuka file satu per satu. Untungnya setelah browsing aku temukan script Bash berikut :
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-07-14 20:06:00 +0700 +07'>July 14, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Mengganti Teks pada Semua File dengan Bash" href="http://localhost:1313/posts/mengganti-teks-pada-semua-file-dengan-bash/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -163,7 +214,7 @@ Untuk mengakses value dari suatu key Dict, gunakan dict.get([nama_key]). Untuk v
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Akses Ssh Windows 10
+    <h2 class="entry-hint-parent">Akses SSH Windows 10
     </h2>
   </header>
   <div class="entry-content">
@@ -175,7 +226,7 @@ Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang te
   <footer class="entry-footer">
 
 <span title='2026-06-22 21:46:07 +0700 +07'>June 22, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Akses Ssh Windows 10" href="http://localhost:1313/posts/akses-ssh-windows-10/"></a>
+  <a class="entry-link" aria-label="post link to Akses SSH Windows 10" href="http://localhost:1313/posts/akses-ssh-windows-10/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -242,56 +293,6 @@ Belasan tahun yang lalu ada tetangga kami yang berjualan nasi pecel yang sangat 
 
 <span title='2026-05-28 00:27:55 +0000 UTC'>May 28, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Nasi Pecel Mbak Yat" href="http://localhost:1313/posts/nasi-pecel-mbak-yat/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Mbah Dandang
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-Dulu ketika aku masih kecil, ada seorang nenek, kerabat jauh dari ayahku, yang tinggal bersama kami secara berkala. Beliau waktu itu akrab kupanggil mbah Dandang karena beliau berjualan dandang. Mbah Dandang menjajakan dandang dengan menggendong dandang-dandang tadi dan berjalan kaki dari desa ke desa hingga puluhan kilometer dari tempat tinggal kami. Setiap tiba dari tempat asalnya, beliau selalu membawakan oleh-oleh berupa lentho atau roti yang berbentuk seperti bongkahan tael emas yang sering kita lihat di film-film cina.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-05-27 21:11:55 +0700 +07'>May 27, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Mbah Dandang" href="http://localhost:1313/posts/mbah-dandang/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Mbedinding
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-Tahun ini pergantian musim hujan ke musim kemarau tanpa disertai fenomena mbedinding. Mbedinding ini adalah suatu fenomena dimana volume udara berangin lebih besar dan menghasilkan udara dingin di sore, malam, dan pagi hari yang bahkan lebih dingin dari pada udara sore, malam, dan pagi di musim hujan.
-gambar dari shutterstock.com
-</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-05-27 20:04:46 +0700 +07'>May 27, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Mbedinding" href="http://localhost:1313/posts/mbedinding/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Menampilkan Gambar
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Menampilkan Gambar Untuk bisa menampilkan gambar kita harus membuat sebuah direktori dengan nama yang sama dengan judul artikel kita dan membuat sebuah file index.md dan meletakkan file gambar yang akan kita tampilkan di dalam direktori tersebut. Misal : kita ingin membuat artikel berjudul “mengenal varian nasi pecel” yang pada artikel tadi akan menampilkan file “pecel.jpg”, maka kita harus membuat directory “content/posts/mengenal-varian-nasi-pecel/”. Lantas membuat sebuah file index.md dan memastikan ada file “pecel.jpg” di dalamnya. Nah, pada file index.md kita bisa isi dengan sintaks :
-![gambar nasi pecel](pecel.jpg).
-Agak ribet ya?. Emang…
-</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-05-16 20:33:48 +0700 +07'>May 16, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Menampilkan Gambar" href="http://localhost:1313/posts/menampilkan-gambar/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

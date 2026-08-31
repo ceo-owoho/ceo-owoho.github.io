@@ -5,13 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Akses SSH Windows 10 | CEO&#39;s Notes</title>
+<title>Arti if _name_ == &#34;__main__&#34; pada Script Python | CEO&#39;s Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="
-Malam ini pas ngotak-atik komputer PCku tiba-tiba terlintas pikiran bagaimana cara menjadikan Windows 10 sebagai server SSH dan mengaksesnya dari perankat lain, misal : Termux di hape. Selama ini aku telah berhasil menjadikan hapeku sebagai server SSH melalui sintaks sshd (tentu dengan instalasi rumit sebelumnya..).
-Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang tentunya cukup uzur untuk sebuah PC di tahun 2026, namun setelah browsing beberapa saat, ketemulah caranya :">
+Sebenarnya sudah cukup sering aku menemui sintaks if __name__ == &#39;__main__&#39; : di banyak script Python. Biasanya berada di bagian paling bawah sebelum kode berakhir. Namun baru akhir-akhir ini aku memahami arti dan cara penggunaannya. Secara singkat menurutku fungsi sintaks itu adalah sebagai batas antara :
+
+script yang akan dijalankan dari file lain dengan cara di-import; dengan
+script yang akan dijalankan langsung dari filenya.
+Atau ringkasnya : script di bawah sintaks ini tidak akan dijalankan saat di-import oleh file lain.
+Agak susah dipahami ya?, aku contohin pakai script langsung saja ya.
+
+Misalnya pada file modul_kali_tambah.py berisi seperti ini ;">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/akses-ssh-windows-10/">
+<link rel="canonical" href="http://localhost:1313/posts/arti-if-name-equal-main-di-script-python/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -20,7 +26,7 @@ Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang te
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/akses-ssh-windows-10/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/arti-if-name-equal-main-di-script-python/">
 <noscript>
     <style>
         #theme-toggle,
@@ -126,42 +132,52 @@ Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang te
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Akses SSH Windows 10
+      Arti if _name_ == &#34;__main__&#34; pada Script Python
     </h1>
     <div class="post-meta">
 
-<span title='2026-06-22 21:46:07 +0700 +07'>June 22, 2026</span>
+<span title='2026-07-15 19:52:52 +0700 +07'>July 15, 2026</span>
 
 </div>
     
 <div>Categories:
     <a href="/categories/programming/">Programming</a></div>
   </header> 
-  <div class="post-content md-content"><p><img alt="termux-on-win10" loading="lazy" src="/posts/akses-ssh-windows-10/ssh_win10.jpg"></p>
-<p>Malam ini pas ngotak-atik komputer PCku tiba-tiba terlintas pikiran <em>bagaimana cara menjadikan Windows 10 sebagai server SSH dan mengaksesnya dari perankat lain, misal : Termux di hape</em>. Selama ini aku telah berhasil menjadikan hapeku sebagai server SSH melalui sintaks <strong>sshd</strong> (<em>tentu dengan instalasi rumit sebelumnya..</em>).</p>
-<p>Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang tentunya cukup uzur untuk sebuah PC di tahun 2026, namun setelah browsing beberapa saat, ketemulah caranya :</p>
-<ol>
-<li>Buka aplikasi <strong>Windows PowerShell</strong> <em>as Administrator</em> dan jalankan sintaks ini <code>Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0</code>.</li>
-<li>Tunggu proses hingga muncul tampilan berikut :
-<img alt="instalasi ssh" loading="lazy" src="/posts/akses-ssh-windows-10/instal_ssh.jpg"></li>
-<li>Selanjutnya ketikkan sintaks <code>Start-Service sshd</code></li>
-<li>Kemudian ketik sintaks <code>Set-Service -Name sshd -StartupType 'Automatic'</code></li>
-<li>Ketik sintaks tambahan <code>New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22</code></li>
-<li>Kursor pada layar Windows PowerShell akan berkedip-kedip</li>
-<li>Untuk mengakses ssh dari Termux, silakan ketikkan sintaks <code>ssh [username pc/laptop]@ip_pc</code>. Jika misal diketahui username Windows adalah <strong>budi</strong> dan ip PC adalah <strong>12.345.678.99</strong> (gunakan sintaks <code>ipconfig</code> pada PowerShell atau Command Prompt untuk mencari ip), maka untuk mengaksess ssh server di PC Windows 10 tadi adalah dengan mengetikkan kode berikut pada Termux :</li>
-</ol>
-<p><code>ssh budi@12.345.678.99</code></p>
-<ol start="8">
-<li>Akan ada pertanyaan konfirmasi, pilih/ketik <strong>yes</strong></li>
-<li>Kemudian kita diminta mengisikan password yaitu password dari login Windows kita</li>
-<li>Jika berhasil maka pada tampilan Termux kita akan muncul mirip sekali dengan tampilan Command Prompt berserta struktur direktori dan berkas-berkasnya</li>
-</ol>
-<p><em>Catatan :</em></p>
+  <div class="post-content md-content"><p><img alt="python" loading="lazy" src="/posts/arti-if-name-equal-main-di-script-python/python.png">
+Sebenarnya sudah cukup sering aku menemui sintaks <code>if __name__ == '__main__' :</code> di banyak script Python. Biasanya berada di bagian paling bawah sebelum kode berakhir. Namun baru akhir-akhir ini aku memahami arti dan cara penggunaannya. Secara singkat menurutku fungsi sintaks itu adalah sebagai batas antara :</p>
 <ul>
-<li><em>Pastikan user login yang digunakan mempunyai password, karena jika tidak, kode di atas tidak akan berjalan.</em></li>
-<li><em>Untuk saling terhubung antara Termux hape dan PC server ssh, perlu dipastikan keduanya berada pada jaringan yang sama. Misal : keduanya menggunakan wifi sama atau berada pada jaringan LAN yang sama.</em></li>
+<li>script yang akan dijalankan dari file lain dengan cara di-import; dengan</li>
+<li>script yang akan dijalankan langsung dari filenya.
+Atau ringkasnya : script di bawah sintaks ini tidak akan dijalankan saat di-import oleh file lain.
+Agak susah dipahami ya?, aku contohin pakai script langsung saja ya.</li>
 </ul>
-<p>Demikian</p>
+<p>Misalnya pada file <em>modul_kali_tambah.py</em> berisi seperti ini ;</p>
+<pre tabindex="0"><code>def kalikan(a: int, b: int)-&gt;int :
+	return a * b
+
+def tambahkan(a: int, b: int)-&gt;int :
+	return a + b
+
+if __name__==&#34;__main__&#34;:
+	print(&#34;=======Run from the Script file=======&#34;)
+	print(f&#34;Hasil perkalian dari 20 x 5 adalah {kalikan(20, 5)}&#34;)
+	print(f&#34;Hasil Penjumlahan dari 35 + 65 adalah {tambahkan(35, 65)}&#34;)
+</code></pre><p>Selanjutnya ada file <em>importer.py</em> yang berisi :</p>
+<pre tabindex="0"><code>from modul_kali_tambah import kalikan, tambahkan
+
+print(&#34;===Run method by importing from another Script code===&#34;)
+print(f&#34;Hasil perkalian dari 45 x 4 adalah {kalikan(45, 4)}&#34;)
+print(f&#34;Hasil Penjumlahan dari 85 + 25 adalah {tambahkan(85, 25)}&#34;)
+</code></pre><p>Dari script <em>importer.py</em> kita tahu bahwa file ini meng-impor method kalikan dan method tambahkan dari file <em>modul_kali_tambah.py</em>. Saat file <em>importer.py</em> dijalankan akan menghasilkan :
+<img alt="impor" loading="lazy" src="/posts/arti-if-name-equal-main-di-script-python/hasil_impor.jpg"></p>
+<p>artinya script pada file modul_kali_tambah.py yang berada di bawah <code>if __name__==&quot;__main__&quot;:</code> yaitu :</p>
+<pre tabindex="0"><code>print(&#34;=======Run from the Script file=======&#34;)
+print(f&#34;Hasil perkalian dari 20 x 5 adalah {kalikan(20, 5)}&#34;)
+print(f&#34;Hasil Penjumlahan dari 35 + 65 adalah {tambahkan(35, 65)}&#34;)
+</code></pre><p><strong>tidak dijalankan</strong>.</p>
+<p>Perhatikan jika file <em>modul_kali_tambah.py</em> kita jalankan langsung hasilnya adalah :
+<img alt="sendiri" loading="lazy" src="/posts/arti-if-name-equal-main-di-script-python/hasil_sendiri.jpg"></p>
+<p>Ini, bagiku, sangat berguna di saat kita ingin method yang ada di suatu file dapat di-impor oleh file lain sehingga kita tidak perlu menuliskan script method yang sama berulang pada file yang memerlukannya.</p>
 
 
   </div>

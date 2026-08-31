@@ -5,13 +5,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Akses SSH Windows 10 | CEO&#39;s Notes</title>
+<title>Mengganti Teks pada Semua File dengan Bash | CEO&#39;s Notes</title>
 <meta name="keywords" content="">
 <meta name="description" content="
-Malam ini pas ngotak-atik komputer PCku tiba-tiba terlintas pikiran bagaimana cara menjadikan Windows 10 sebagai server SSH dan mengaksesnya dari perankat lain, misal : Termux di hape. Selama ini aku telah berhasil menjadikan hapeku sebagai server SSH melalui sintaks sshd (tentu dengan instalasi rumit sebelumnya..).
-Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang tentunya cukup uzur untuk sebuah PC di tahun 2026, namun setelah browsing beberapa saat, ketemulah caranya :">
+Suatu saat aku ingin menggabungkan isi seluruh file teks menjadi satu file teks baru. Hal ini terlaksana dengan menggunakan script Python berikut :
+import glob
+import shutil
+
+files = glob.glob(&#34;*.txt&#34;)
+
+with open(&#34;gabungan.txt&#34;, &#34;wb&#34;) as outfile:
+    for fname in files:
+        with open(fname, &#34;rb&#34;) as infile:
+            shutil.copyfileobj(infile, outfile)
+Jika script di atas dijalankan pada suatu direktori maka isi semua file .txt yang ada pada direktori tersebut akan di-copy-paste ke file gabungan.txt.
+Namun ternyata ada banyak frasa/kata yang harus dihilangkan atau diganti. Jika hal ini dilakukan hanya pada gabungan.txt tanpa melakukan penggantian pada setiap file .txt di direktori, tentunya hal ini akan sia-sia. Jadi aku harus mencari cara mengganti teks terlarang pada setiap file .txt tanpa membuka file satu per satu. Untungnya setelah browsing aku temukan script Bash berikut :">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/akses-ssh-windows-10/">
+<link rel="canonical" href="http://localhost:1313/posts/mengganti-teks-pada-semua-file-dengan-bash/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -20,7 +30,7 @@ Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang te
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/akses-ssh-windows-10/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/mengganti-teks-pada-semua-file-dengan-bash/">
 <noscript>
     <style>
         #theme-toggle,
@@ -126,43 +136,40 @@ Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang te
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Akses SSH Windows 10
+      Mengganti Teks pada Semua File dengan Bash
     </h1>
     <div class="post-meta">
 
-<span title='2026-06-22 21:46:07 +0700 +07'>June 22, 2026</span>
+<span title='2026-07-14 20:06:00 +0700 +07'>July 14, 2026</span>
 
 </div>
     
 <div>Categories:
     <a href="/categories/programming/">Programming</a></div>
   </header> 
-  <div class="post-content md-content"><p><img alt="termux-on-win10" loading="lazy" src="/posts/akses-ssh-windows-10/ssh_win10.jpg"></p>
-<p>Malam ini pas ngotak-atik komputer PCku tiba-tiba terlintas pikiran <em>bagaimana cara menjadikan Windows 10 sebagai server SSH dan mengaksesnya dari perankat lain, misal : Termux di hape</em>. Selama ini aku telah berhasil menjadikan hapeku sebagai server SSH melalui sintaks <strong>sshd</strong> (<em>tentu dengan instalasi rumit sebelumnya..</em>).</p>
-<p>Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang tentunya cukup uzur untuk sebuah PC di tahun 2026, namun setelah browsing beberapa saat, ketemulah caranya :</p>
-<ol>
-<li>Buka aplikasi <strong>Windows PowerShell</strong> <em>as Administrator</em> dan jalankan sintaks ini <code>Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0</code>.</li>
-<li>Tunggu proses hingga muncul tampilan berikut :
-<img alt="instalasi ssh" loading="lazy" src="/posts/akses-ssh-windows-10/instal_ssh.jpg"></li>
-<li>Selanjutnya ketikkan sintaks <code>Start-Service sshd</code></li>
-<li>Kemudian ketik sintaks <code>Set-Service -Name sshd -StartupType 'Automatic'</code></li>
-<li>Ketik sintaks tambahan <code>New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22</code></li>
-<li>Kursor pada layar Windows PowerShell akan berkedip-kedip</li>
-<li>Untuk mengakses ssh dari Termux, silakan ketikkan sintaks <code>ssh [username pc/laptop]@ip_pc</code>. Jika misal diketahui username Windows adalah <strong>budi</strong> dan ip PC adalah <strong>12.345.678.99</strong> (gunakan sintaks <code>ipconfig</code> pada PowerShell atau Command Prompt untuk mencari ip), maka untuk mengaksess ssh server di PC Windows 10 tadi adalah dengan mengetikkan kode berikut pada Termux :</li>
-</ol>
-<p><code>ssh budi@12.345.678.99</code></p>
-<ol start="8">
-<li>Akan ada pertanyaan konfirmasi, pilih/ketik <strong>yes</strong></li>
-<li>Kemudian kita diminta mengisikan password yaitu password dari login Windows kita</li>
-<li>Jika berhasil maka pada tampilan Termux kita akan muncul mirip sekali dengan tampilan Command Prompt berserta struktur direktori dan berkas-berkasnya</li>
-</ol>
-<p><em>Catatan :</em></p>
-<ul>
-<li><em>Pastikan user login yang digunakan mempunyai password, karena jika tidak, kode di atas tidak akan berjalan.</em></li>
-<li><em>Untuk saling terhubung antara Termux hape dan PC server ssh, perlu dipastikan keduanya berada pada jaringan yang sama. Misal : keduanya menggunakan wifi sama atau berada pada jaringan LAN yang sama.</em></li>
-</ul>
-<p>Demikian</p>
+  <div class="post-content md-content"><p><img alt="bash" loading="lazy" src="/posts/mengganti-teks-pada-semua-file-dengan-bash/bash.jpg"></p>
+<p>Suatu saat aku ingin menggabungkan isi seluruh file teks menjadi satu file teks baru. Hal ini terlaksana dengan menggunakan script <em>Python</em> berikut :</p>
+<pre tabindex="0"><code>import glob
+import shutil
 
+files = glob.glob(&#34;*.txt&#34;)
+
+with open(&#34;gabungan.txt&#34;, &#34;wb&#34;) as outfile:
+    for fname in files:
+        with open(fname, &#34;rb&#34;) as infile:
+            shutil.copyfileobj(infile, outfile)
+</code></pre><p>Jika script di atas dijalankan pada suatu direktori maka isi semua file .txt yang ada pada direktori tersebut akan di-copy-paste ke file gabungan.txt.</p>
+<p>Namun ternyata ada banyak frasa/kata yang harus dihilangkan atau diganti. Jika hal ini dilakukan hanya pada gabungan.txt tanpa melakukan penggantian pada setiap file .txt di direktori, tentunya hal ini akan sia-sia. Jadi aku harus mencari cara mengganti teks terlarang pada setiap file .txt tanpa membuka file satu per satu. Untungnya setelah browsing aku temukan script <em>Bash</em> berikut :</p>
+<pre tabindex="0"><code>find . -type f -name &#34;.txt&#34; -exec sed -i &#39;s/anjrot//g&#39; {} +
+</code></pre><p>dengan menjalankan script di atas, teks &ldquo;anjrot&rdquo; pada setiap file .txt dalam direktori ini, diganti &quot;&quot; (string kosong).</p>
+<p>Bagaimana jika ingin menghilangkan karakter non-ASCII pada isi setiap file .txt? Begini script Bash-nya :</p>
+<pre tabindex="0"><code>#!/bin/bash
+for file in *.txt;do [ -f &#34;$file&#34; ] &amp;&amp; LC_ALL=C tr -d &#39;\200-\377&#39; &lt; &#34;$file&#34; &gt; &#34;${file}.tmp&#34; &amp;&amp; mv &#34;${file}.tmp&#34; &#34;$file&#34;;done
+</code></pre><p>simpan script di atas dengan ekstensi .sh kemudian jalankan di Terminal Linux atau Terminal Gygwin. Tuliskan dalam satu baris kode, jangan dipenggal!.</p>
+<p>Cara mencari file yang mempunyai teks tertentu dengan <em>Bash</em>.
+Misal kita ingin mencari semua file .txt yang mempunyai teks <em>&ldquo;Josjis&rdquo;</em> di dalamnya. Berikut scriptnya :</p>
+<pre tabindex="0"><code>find . -type f -name &#34;*.txt&#34; -exec grep -l &#34;Josjis&#34; {} +
+</code></pre>
 
   </div>
 

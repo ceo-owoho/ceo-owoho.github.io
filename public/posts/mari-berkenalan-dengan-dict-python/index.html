@@ -153,6 +153,8 @@ Untuk mengakses value dari suatu key Dict, gunakan dict.get([nama_key]). Untuk v
 </code></pre><p>Pada contoh di atas, <strong>id</strong>, <strong>nama</strong>, dan <strong>poin</strong> adalah contoh key, sedangkan <strong>1</strong>, <strong>Budi</strong>, dan <strong>13998</strong> adalah value-nya.</p>
 <p>Untuk mengakses value dari suatu key Dict, gunakan <code>dict.get([nama_key])</code>. Untuk variabel <em>kamus</em> di atas, jika kita ingin mencari nilai dari <em>poin</em>, maka sintaksnya adalah :</p>
 <pre tabindex="0"><code>poinku = myprofil.get(&#34;poin&#34;) # menghasilkan : 13998
+</code></pre><p>agar tidak error saat key tidak ditemukan :</p>
+<pre tabindex="0"><code>print(myprofil.get(&#34;email&#34;, &#34;Not Found&#34;)) # key &#39;email&#39; tidak ada
 </code></pre><p>Bagaimana jika kita ingin memunculkan seluruh key yang ada pada suatu dict?. Gunakan method <code>.keys()</code></p>
 <pre tabindex="0"><code>all_keys = myprofil.keys()
 
@@ -168,7 +170,16 @@ print(myvalues) # hasil : dict_values([ 1, &#39;Budi&#39;, 13998])
 <pre tabindex="0"><code>semua = myprofil.items()
 
 print(semua) # hasil : dict_items([(&#39;id&#39;, 1), (&#39;nama&#39;, &#39;Budi&#39;), (&#39;poin&#39;, 13988)])
-</code></pre><p>Lanjut ke part 2 ya &hellip;</p>
+</code></pre><p>bisa juga seperti ini :</p>
+<pre tabindex="0"><code>for id, nama, poin in myprofil.items():
+    print(f&#34;ID Anda : {id}, dengan username : {name}, dan poin : {poin}.&#34;)
+</code></pre><p>Untuk menambah item/pasangan key-value baru :</p>
+<pre tabindex="0"><code>myprofil[&#34;role&#34;] = &#34;admin&#34;
+</code></pre><p>Meng-update data :</p>
+<pre tabindex="0"><code>myprofil[&#34;poin&#34;] = 15000
+</code></pre><p>Menghapus pasangan key-value :</p>
+<pre tabindex="0"><code>del myprofil[&#34;role&#34;]
+</code></pre><p>Demikian</p>
 
 
   </div>

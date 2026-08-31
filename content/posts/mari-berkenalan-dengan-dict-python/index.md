@@ -20,6 +20,10 @@ Untuk mengakses value dari suatu key Dict, gunakan ```dict.get([nama_key])```. U
 ```
 poinku = myprofil.get("poin") # menghasilkan : 13998
 ```
+agar tidak error saat key tidak ditemukan :
+```
+print(myprofil.get("email", "Not Found")) # key 'email' tidak ada
+```
 Bagaimana jika kita ingin memunculkan seluruh key yang ada pada suatu dict?. Gunakan method ```.keys()```
 ```
 all_keys = myprofil.keys()
@@ -45,5 +49,24 @@ semua = myprofil.items()
 
 print(semua) # hasil : dict_items([('id', 1), ('nama', 'Budi'), ('poin', 13988)])
 ```
+bisa juga seperti ini :
+```
+for id, nama, poin in myprofil.items():
+    print(f"ID Anda : {id}, dengan username : {name}, dan poin : {poin}.")
+```
 
-Lanjut ke part 2 ya ...
+Untuk menambah item/pasangan key-value baru :
+```
+myprofil["role"] = "admin"
+```
+Meng-update data :
+```
+myprofil["poin"] = 15000
+```
+
+Menghapus pasangan key-value :
+```
+del myprofil["role"]
+```
+
+Demikian
