@@ -4,7 +4,7 @@ draft = false
 title = 'Curl di Windows Command Prompt'
 categories = ["Programming"]
 +++
-
+![curl](curl.png)
 Secara umum, request POST dapat dilakukan format :
 ```
 curl -X POST https://example.com \

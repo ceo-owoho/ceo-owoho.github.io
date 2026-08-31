@@ -5,11 +5,32 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Posts | CEO&#39;s Notes</title>
+<title>File .env pada Python | CEO&#39;s Notes</title>
 <meta name="keywords" content="">
-<meta name="description" content="Posts - CEO&#39;s Notes">
+<meta name="description" content="
+Terkadang kita memerlukan pengaturan tertentu pada aplikasi disesuaikan dengan di sistem atau komputer apa aplikasi ini berada. Pada Python pengaturan ini dapat disimpan pada sebuah file .env. Berikut langkah-langkahnya :
+
+
+Instal python-dotenv dengan sintaks
+pip install python-dotenv
+
+
+Buat sebuah file .env dan isi, misal :
+ASAL=solo
+TUJUAN=jogja
+
+
+Cara mengambil nilai yang berada di file .env ;
+from dotenv import load_dotenv
+
+the_source = os.getenv(&#34;ASAL&#34;)
+
+print(the_source) # solo
+
+
+Untuk keamanan, pastikan file .env dikecualikan dari git commit dengan menambahkan teks .env pada baris baru di file .gitignore">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/">
+<link rel="canonical" href="http://localhost:1313/posts/env-pada-python/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +39,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/posts/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/env-pada-python/">
 <noscript>
     <style>
         #theme-toggle,
@@ -67,7 +87,7 @@
 
 </script>
 </head>
-<body class="list" id="top">
+<body id="top">
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
@@ -103,7 +123,7 @@
             </li>
             <li>
                 <a href="http://localhost:1313/posts/" title="Artikel">
-                    <span class="active">Artikel</span>
+                    <span>Artikel</span>
                 </a>
             </li>
             <li>
@@ -119,101 +139,57 @@
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header">
-  <h1>
-    Posts
-  </h1>
-</header>
+<main class="main">
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Nasi Pecel Mbak Yat
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-Belasan tahun yang lalu ada tetangga kami yang berjualan nasi pecel yang sangat enak dan bahkan menjadi langganan keluarga kami. Beliau adalah mBak Yat, begitu kami mengenalnya. Hampir tiap hari, aku “ditugasi” nenekku untuk membeli nasi pecel disini untuk sarapan seluruh anggota keluarga kami. Tak kurang dari delapan bungkus nasi pecel, hampir setiap harinya. Nasi pecel mBak Yat mempunyai cita rasa pedas yang pas dan bagian yang paling kuingat adalah lauk tempe gorengnya yang memiliki tekstur luar renyah namun lapisan dalamnya lembut seperti tempe mendoan. Bila ingin tambahan lain, pembeli bisa request lauk telur dadar. Namun nasi pecel yang kami pesan selalu nasi pecal original dengan lauk tempe goreng. Dari satu bungkus seharga Rp100 (ya, seratus rupiah) hingga terakhir aku menjalankan tugas ini nasi pecel mbak Yat seharga Rp500.
-</p>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      File .env pada Python
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-08-31 18:27:15 +0700 +07'>August 31, 2026</span>
+
+</div>
+    
+<div>Categories:
+    <a href="/categories/programming/">Programming</a></div>
+  </header> 
+  <div class="post-content md-content"><p><img alt="python" loading="lazy" src="/posts/env-pada-python/python.png">
+Terkadang kita memerlukan pengaturan tertentu pada aplikasi disesuaikan dengan di sistem atau komputer apa aplikasi ini berada. Pada Python pengaturan ini dapat disimpan pada sebuah file <strong>.env</strong>. Berikut langkah-langkahnya :</p>
+<ol>
+<li>
+<p>Instal <em>python-dotenv</em> dengan sintaks
+<code>pip install python-dotenv</code></p>
+</li>
+<li>
+<p>Buat sebuah file .env dan isi, misal :</p>
+<pre tabindex="0"><code>ASAL=solo
+TUJUAN=jogja
+</code></pre></li>
+<li>
+<p>Cara mengambil nilai yang berada di file .env ;</p>
+<pre tabindex="0"><code>from dotenv import load_dotenv
+
+the_source = os.getenv(&#34;ASAL&#34;)
+
+print(the_source) # solo
+</code></pre></li>
+</ol>
+<p>Untuk keamanan, pastikan file .env dikecualikan dari <em>git commit</em> dengan menambahkan teks <code>.env</code> pada baris baru di file <em>.gitignore</em></p>
+<p>Contoh untuk Flask :</p>
+<pre tabindex="0"><code>DEBUG = os.getenv(&#34;DEBUG&#34;) == &#34;True&#34;
+</code></pre><p><em>sumber : <a href="https://medium.com/@rohitkuyadav2003/how-to-use-env-files-in-python-the-right-way-beginner-to-production-2e15228a0a6e">https://medium.com/@rohitkuyadav2003/how-to-use-env-files-in-python-the-right-way-beginner-to-production-2e15228a0a6e</a></em></p>
+
+
   </div>
-  <footer class="entry-footer">
 
-<span title='2026-05-28 00:27:55 +0000 UTC'>May 28, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Nasi Pecel Mbak Yat" href="http://localhost:1313/posts/nasi-pecel-mbak-yat/"></a>
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Mbah Dandang
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-Dulu ketika aku masih kecil, ada seorang nenek, kerabat jauh dari ayahku, yang tinggal bersama kami secara berkala. Beliau waktu itu akrab kupanggil mbah Dandang karena beliau berjualan dandang. Mbah Dandang menjajakan dandang dengan menggendong dandang-dandang tadi dan berjalan kaki dari desa ke desa hingga puluhan kilometer dari tempat tinggal kami. Setiap tiba dari tempat asalnya, beliau selalu membawakan oleh-oleh berupa lentho atau roti yang berbentuk seperti bongkahan tael emas yang sering kita lihat di film-film cina.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-05-27 21:11:55 +0700 +07'>May 27, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Mbah Dandang" href="http://localhost:1313/posts/mbah-dandang/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Mbedinding
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-Tahun ini pergantian musim hujan ke musim kemarau tanpa disertai fenomena mbedinding. Mbedinding ini adalah suatu fenomena dimana volume udara berangin lebih besar dan menghasilkan udara dingin di sore, malam, dan pagi hari yang bahkan lebih dingin dari pada udara sore, malam, dan pagi di musim hujan.
-gambar dari shutterstock.com
-</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-05-27 20:04:46 +0700 +07'>May 27, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Mbedinding" href="http://localhost:1313/posts/mbedinding/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Menampilkan Gambar
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Menampilkan Gambar Untuk bisa menampilkan gambar kita harus membuat sebuah direktori dengan nama yang sama dengan judul artikel kita dan membuat sebuah file index.md dan meletakkan file gambar yang akan kita tampilkan di dalam direktori tersebut. Misal : kita ingin membuat artikel berjudul “mengenal varian nasi pecel” yang pada artikel tadi akan menampilkan file “pecel.jpg”, maka kita harus membuat directory “content/posts/mengenal-varian-nasi-pecel/”. Lantas membuat sebuah file index.md dan memastikan ada file “pecel.jpg” di dalamnya. Nah, pada file index.md kita bisa isi dengan sintaks :
-![gambar nasi pecel](pecel.jpg).
-Agak ribet ya?. Emang…
-</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-05-16 20:33:48 +0700 +07'>May 16, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Menampilkan Gambar" href="http://localhost:1313/posts/menampilkan-gambar/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Artikel Pertama
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Hallo.. Ini adalah artikel pertama dari blog Myblog.
-blog ini merupakan hasil membaca link ini
-</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-05-16 20:17:49 +0700 +07'>May 16, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Artikel Pertama" href="http://localhost:1313/posts/artikel-pertama/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="http://localhost:1313/posts/">
-      «&nbsp;Prev&nbsp;
-    </a>
-  </nav>
-</footer>
     </main>
     
 <footer class="footer">
