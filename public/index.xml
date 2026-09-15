@@ -6,8 +6,16 @@
     <description>Recent content on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2026 18:27:15 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2026 12:00:00 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Tue, 15 Sep 2026 12:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;Selamat datang di website saya!&lt;/p&gt;
+&lt;p&gt;Di sini Anda bisa menuliskan profil singkat, latar belakang, visi, atau portofolio yang ingin Anda bagikan kepada pengunjung website.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>File .env pada Python</title>
       <link>http://localhost:1313/posts/env-pada-python/</link>
