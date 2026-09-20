@@ -6,8 +6,17 @@
     <description>Recent content on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Sep 2026 12:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 22:00:30 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Menyalin File dari SSH Termux dengan Cygwin pada Windows 10</title>
+      <link>http://localhost:1313/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/</link>
+      <pubDate>Sun, 20 Sep 2026 22:00:30 +0700</pubDate>
+      <guid>http://localhost:1313/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;termux-ssh&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/termux.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Pernah suatu ketika aku ingin memindahkan banyak file dari Hapeku ke Laptop namun banyak file yang berukuran besar (biasanya &amp;gt; 10 MB) menjadi &lt;em&gt;corupt&lt;/em&gt; saat diakses di Laptop. Hal yang sama terjadi jika aku salin ke PC. Hingga akhirnya aku menemukan solusinya dengan menggunakan SSH Termux untuk kemudian diakses dan disalin dari Laptop/PC Windows dengan menggunakan &lt;em&gt;command&lt;/em&gt; &lt;strong&gt;scp&lt;/strong&gt; pada aplikasi &lt;em&gt;Windows PowerShell&lt;/em&gt; dengan pola :&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;scp -P 8022 -c aes128-ctr [user_ssh_termux]@[ip_ssh_termux]:[alamat_file_di_hape]/[file_yang_ingin_dicopy] &amp;quot;[direkori_di_windows]&amp;quot;&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>About Me</title>
       <link>http://localhost:1313/about/</link>

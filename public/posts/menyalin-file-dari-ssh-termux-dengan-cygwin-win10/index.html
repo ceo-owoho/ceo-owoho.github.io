@@ -5,11 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Categories | CEO&#39;s Notes</title>
+<title>Menyalin File dari SSH Termux dengan Cygwin pada Windows 10 | CEO&#39;s Notes</title>
 <meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="description" content="
+Pernah suatu ketika aku ingin memindahkan banyak file dari Hapeku ke Laptop namun banyak file yang berukuran besar (biasanya &gt; 10 MB) menjadi corupt saat diakses di Laptop. Hal yang sama terjadi jika aku salin ke PC. Hingga akhirnya aku menemukan solusinya dengan menggunakan SSH Termux untuk kemudian diakses dan disalin dari Laptop/PC Windows dengan menggunakan command scp pada aplikasi Windows PowerShell dengan pola :
+scp -P 8022 -c aes128-ctr [user_ssh_termux]@[ip_ssh_termux]:[alamat_file_di_hape]/[file_yang_ingin_dicopy] &quot;[direkori_di_windows]&quot;">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/categories/">
+<link rel="canonical" href="http://localhost:1313/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +20,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/categories/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/">
 <noscript>
     <style>
         #theme-toggle,
@@ -67,7 +68,7 @@
 
 </script>
 </head>
-<body class="list" id="top">
+<body id="top">
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
@@ -108,7 +109,7 @@
             </li>
             <li>
                 <a href="http://localhost:1313/categories/" title="Kategori">
-                    <span class="active">Kategori</span>
+                    <span>Kategori</span>
                 </a>
             </li>
             <li>
@@ -120,18 +121,42 @@
     </nav>
 </header>
 <main class="main">
-<header class="page-header">
-    <h1>Categories</h1>
-</header>
 
-<ul class="terms-tags">
-            <li>
-                <a href="http://localhost:1313/categories/daily-notes/">Daily Notes <sup><strong><sup>6</sup></strong></sup> </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/categories/programming/">Programming <sup><strong><sup>10</sup></strong></sup> </a>
-            </li>
-</ul>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Menyalin File dari SSH Termux dengan Cygwin pada Windows 10
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-09-20 22:00:30 +0700 +07'>September 20, 2026</span>
+
+</div>
+    
+<div>Categories:
+    <a href="/categories/programming/">Programming</a></div>
+  </header> 
+  <div class="post-content md-content"><p><img alt="termux-ssh" loading="lazy" src="/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/termux.jpg"></p>
+<p>Pernah suatu ketika aku ingin memindahkan banyak file dari Hapeku ke Laptop namun banyak file yang berukuran besar (biasanya &gt; 10 MB) menjadi <em>corupt</em> saat diakses di Laptop. Hal yang sama terjadi jika aku salin ke PC. Hingga akhirnya aku menemukan solusinya dengan menggunakan SSH Termux untuk kemudian diakses dan disalin dari Laptop/PC Windows dengan menggunakan <em>command</em> <strong>scp</strong> pada aplikasi <em>Windows PowerShell</em> dengan pola :</p>
+<p><code>scp -P 8022 -c aes128-ctr [user_ssh_termux]@[ip_ssh_termux]:[alamat_file_di_hape]/[file_yang_ingin_dicopy] &quot;[direkori_di_windows]&quot;</code></p>
+<p>misal :</p>
+<p><code>scp -P 8022 -c aes128-ctr u0_u212@123.456.7.8:/data/data/com.termux/files/home/storage/downloads/Kisah_Cinta_Di_Kota_Kecil.mp3 &quot;D:\lagu\&quot;</code></p>
+<p>Namun ternyata, sintaks dengan <em>scp</em> ini sering terkendala pada PC yang menggunakan <em>WIFI dongle USB</em>. Ya, saat di laptop script di atas berjalan dengan lancarnya, namun saat dijalankan di PC dengan WIFI dongle, sering kali proses salin file terhenti dan error, sehingga harus mengulang dari awal.</p>
+<p>Nah, ternyata ada untungnya juga meng-install <em>Dola AI</em>. Dari aplikasi AI ini aku menemukan solusi dari kendala di atas yaitu menggunakan <em>command</em> <strong>rsync</strong> dan menjalankan pada <strong>cygwin</strong> yang telah aku install sejak lama. Jadi polanya adalah :</p>
+<p><code>rsync -avzP -e &quot;ssh -p 8022 -o ServerAliveInterval=15 -o ServerAliveCountMax=3&quot; [user_ssh_termux]@[ip_ssh_termux]:[alamat_file_di_hape]/[file_yang_ingin_dicopy] &quot;[direkori_di_windows_dengan_format_cygwin]&quot;</code></p>
+<p><code>rsync -avzP -e &quot;ssh -p 8022 -o ServerAliveInterval=15 -o ServerAliveCountMax=3&quot; u0_u212@123.456.7.8:/data/data/com.termux/files/home/storage/downloads/Kisah_Cinta_Di_Kota_Kecil.mp3 &quot;/cygdrive/d/lagu&quot;</code></p>
+<p>Ingat direktori Windows <code>D:\folderku\subfoldernya</code> harus dituliskan di cygwin menjadi <code>/cygdrive/d/folderku/subfoldernya</code></p>
+<p>Begitulah, kawan</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
     </main>
     
 <footer class="footer">
