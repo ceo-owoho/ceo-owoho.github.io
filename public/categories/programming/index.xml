@@ -6,8 +6,18 @@
     <description>Recent content in Programming on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Sep 2026 22:00:30 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 09:51:53 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mengganti Nama File dengan Bash Sederhana</title>
+      <link>http://localhost:1313/posts/mengganti-nama-file-dengan-bash/</link>
+      <pubDate>Mon, 21 Sep 2026 09:51:53 +0700</pubDate>
+      <guid>http://localhost:1313/posts/mengganti-nama-file-dengan-bash/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;bash&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/mengganti-nama-file-dengan-bash/bash.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Ada saatnya kita ingin me-rename file dengan langkah sesederhana mungkin. Ini dapat dilakukan dengan &lt;em&gt;Bash&lt;/em&gt; pada &lt;em&gt;Terminal Termux&lt;/em&gt; di handphone atau &lt;em&gt;Cygwin&lt;/em&gt; di Windows.&lt;/p&gt;
+&lt;p&gt;Misal, seperti pada post posts/mengganti-teks-pada-semua-file-dengan-bash/, kita ingin mengganti nama string &lt;em&gt;anjrot&lt;/em&gt; dari nama files semua file .txt menjadi &lt;em&gt;amsyong&lt;/em&gt;, maka jalakan kode ini :&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;for f in *.txt;do mv &amp;quot;$f&amp;quot; &amp;quot;${f/anjrot/amsyong}&amp;quot;;done&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Menyalin File dari SSH Termux dengan Cygwin pada Windows 10</title>
       <link>http://localhost:1313/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/</link>
