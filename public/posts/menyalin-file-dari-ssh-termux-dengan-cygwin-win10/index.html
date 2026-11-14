@@ -143,10 +143,12 @@ scp -P 8022 -c aes128-ctr [user_ssh_termux]@[ip_ssh_termux]:[alamat_file_di_hape
 <p>misal :</p>
 <p><code>scp -P 8022 -c aes128-ctr u0_u212@123.456.7.8:/data/data/com.termux/files/home/storage/downloads/Kisah_Cinta_Di_Kota_Kecil.mp3 &quot;D:\lagu\&quot;</code></p>
 <p>Namun ternyata, sintaks dengan <em>scp</em> ini sering terkendala pada PC yang menggunakan <em>WIFI dongle USB</em>. Ya, saat di laptop script di atas berjalan dengan lancarnya, namun saat dijalankan di PC dengan WIFI dongle, sering kali proses salin file terhenti dan error, sehingga harus mengulang dari awal.</p>
-<p>Nah, ternyata ada untungnya juga meng-install <em>Dola AI</em>. Dari aplikasi AI ini aku menemukan solusi dari kendala di atas yaitu menggunakan <em>command</em> <strong>rsync</strong> dan menjalankan pada <strong>cygwin</strong> yang telah aku install sejak lama. Jadi polanya adalah :</p>
-<p><code>rsync -avzP -e &quot;ssh -p 8022 -o ServerAliveInterval=15 -o ServerAliveCountMax=3&quot; [user_ssh_termux]@[ip_ssh_termux]:[alamat_file_di_hape]/[file_yang_ingin_dicopy] &quot;[direkori_di_windows_dengan_format_cygwin]&quot;</code></p>
+<p>Nah, ternyata ada untungnya juga meng-install <em>Dola AI</em>. Dari aplikasi AI ini aku menemukan solusi dari kendala di atas yaitu menggunakan <em>command</em> <strong>rsync</strong> dan menjalankan pada <strong>Cygwin</strong> yang telah aku install sejak lama. Jadi polanya adalah :</p>
+<p><code>rsync -avzP -e &quot;ssh -p 8022 -o ServerAliveInterval=15 -o ServerAliveCountMax=3&quot; [user_ssh_termux]@[ip_ssh_termux]:[alamat_file_di_hape]/[file_yang_ingin_dicopy] &quot;[direkori_di_windows_dengan_format_Cygwin]&quot;</code></p>
 <p><code>rsync -avzP -e &quot;ssh -p 8022 -o ServerAliveInterval=15 -o ServerAliveCountMax=3&quot; u0_u212@123.456.7.8:/data/data/com.termux/files/home/storage/downloads/Kisah_Cinta_Di_Kota_Kecil.mp3 &quot;/cygdrive/d/lagu&quot;</code></p>
-<p>Ingat direktori Windows <code>D:\folderku\subfoldernya</code> harus dituliskan di cygwin menjadi <code>/cygdrive/d/folderku/subfoldernya</code></p>
+<p>Ingat direktori Windows <code>D:\folderku\subfoldernya</code> harus dituliskan di Cygwin menjadi <code>/cygdrive/d/folderku/subfoldernya</code></p>
+<p>Kadang <code>ssh</code> bawaan Windows dapat mengganggu sintaks <code>rsync</code> di Cygwin, maka dari itu pastikan Cygwin sudah terinstal dengan benar, termasuk sumber reponya. Untuk memastikan ssh versi apa yang digunakan, Windows atau Cygwin, coba tes dengan sintaks <code>which ssh</code>. Jika merujuk pada direktori Windows, maka dipastikan ssh ini akan mengalami konflik dengan <em>ssh</em> Cygwin. Bila ini terjadi, pastikan modul <code>openssh</code> sudah terinstal di Cygwin dan untuk memastikan <em>rsync</em> menggunakan <em>openssh Cygwin</em>, ketikkan sintaks berikut :</p>
+<p><code>rsync -avzP -e &quot;/usr/bin/ssh -p 8022 -o ServerAliveInterval=15 -o ServerAliveCountMax=3&quot; u0_u212@123.456.7.8:/data/data/com.termux/files/home/storage/downloads/Kisah_Cinta_Di_Kota_Kecil.mp3 &quot;/cygdrive/d/lagu&quot;</code></p>
 <p>Begitulah, kawan</p>
 
 

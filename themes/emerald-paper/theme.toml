@@ -1,0 +1,15 @@
+name = "Emerald Paper"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "Tema Hugo modern, elegan, dan responsive dengan hero image, kategori, dan tag."
+homepage = "https://example.com/emerald-paper"
+demosite = "https://example.com/demo"
+
+tags = ["blog", "responsive", "minimal", "modern", "dark-mode"]
+features = ["responsive", "hero-image", "tags", "categories", "dark-mode"]
+
+min_version = "0.128.0"
+
+[author]
+  name = "Mas Budi"
+  homepage = "https://example.com"

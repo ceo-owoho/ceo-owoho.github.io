@@ -124,6 +124,24 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Script Loop Rsync
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>
+Pada artikel ini, aku membahas cara menyalin berkas dari server ssh Termux ke klien PC Windows 10 menggunakan scp dan rsync, namun kendala jaringan “terputus” masih sering terjadi. Setelah “berkonsultasi” dengan deepseek, akhirnya aku memperoleh script bash yang bisa secara otomatis menjalankan kembali script rsync tadi hingga file tersalin dengan lengkap.
+Langkah-langkahnya :
+Buat akses ke ssh tanpa password dengan ssh key. Caranya : pada Cygwin (PC Klien) ketikkan ssh-keygen -t ed25519. Tekan enter (tanpa password) sampai selesai. Ketik ssh-copy-id -p 8022 [id_user]@[ip_server_ssh]. Jadi (misal) : ssh-copy-id -p 8022 u0_123@11.222.333.44. Coba ketik ssh -p 8022 u0_123@11.222.333.44. Jika berhasil masuk ke server, berarti klien sudah siap. Save as …[dot]sh script berikut : #!/bin/bash# --- Nilai default (boleh diubah) ---DEFAULT_USER=&#34;u0_a123&#34;DEFAULT_IP=&#34;10.11.12.123&#34;DEFAULT_PORT=&#34;8022&#34;DEFAULT_REMOTE_DIR=&#34;/data/data/com.termux/files/home/storage/shared/Download&#34;DEFAULT_DEST=&#34;/cygdrive/d/images&#34;DEFAULT_EXT=&#34;.jpg&#34;RETRY_DELAY=5echo &#34;=== Sinkronisasi JPG dari Termux ke Lokal ===&#34;echo# --- Input dari user (Enter = pakai default) ---read -r -p &#34;User SSH [$DEFAULT_USER]: &#34; USER_INUSER_IN=&#34;${USER_IN:-$DEFAULT_USER}&#34;read -r -p &#34;Alamat IP/Host [$DEFAULT_IP]: &#34; IP_INIP_IN=&#34;${IP_IN:-$DEFAULT_IP}&#34;read -r -p &#34;Port SSH [$DEFAULT_PORT]: &#34; PORT_INPORT_IN=&#34;${PORT_IN:-$DEFAULT_PORT}&#34;read -r -p &#34;Folder remote [$DEFAULT_REMOTE_DIR]: &#34; RDIR_INRDIR_IN=&#34;${RDIR_IN:-$DEFAULT_REMOTE_DIR}&#34;read -r -p &#34;Folder lokal [$DEFAULT_DEST]: &#34; DEST_INDEST_IN=&#34;${DEST_IN:-$DEFAULT_DEST}&#34;read -r -p &#34;Ekstensi (misal :*.jpg) [$DEFAULT_EXT]: &#34; EXT_INEXT_IN=&#34;${EXT_IN:-$DEFAULT_EXT}&#34;# --- Susun variabel ---SOURCE=&#34;${USER_IN}@${IP_IN}:${RDIR_IN}/${EXT_IN}&#34;SSH_OPTIONS=&#34;ssh -p ${PORT_IN} -o ServerAliveInterval=15 -o ServerAliveCountMax=3&#34;echoecho &#34;Sumber : $SOURCE&#34;echo &#34;Tujuan : $DEST_IN&#34;echo &#34;Port : $PORT_IN&#34;echoread -r -p &#34;Lanjutkan? [Y/n]: &#34; CONFIRMcase &#34;$CONFIRM&#34; in[nN]*) echo &#34;Dibatalkan.&#34;; exit 1 ;;esac# --- Loop retry ---echo &#34;Memulai sinkronisasi musik...&#34;while true; dorsync -avzP -e &#34;$SSH_OPTIONS&#34; &#34;$SOURCE&#34; &#34;$DEST_IN&#34;if [ $? -eq 0 ]; thenecho &#34;Sinkronisasi berhasil diselesaikan!&#34;breakelseecho &#34;Koneksi terputus atau error. Mencoba lagi dalam ${RETRY_DELAY} detik...&#34;sleep &#34;$RETRY_DELAY&#34;fidone Sesuaikan dengan keperluan dan kemudian jalankan melalui Cygwin. Semoga berhasil.
+</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-11-14 21:25:57 +0700 +07'>November 14, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Script Loop Rsync" href="http://localhost:1313/posts/script-loop-rsync/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Kemarau Tahun Ini
     </h2>
   </header>
@@ -279,23 +297,6 @@ Untuk mengakses value dari suatu key Dict, gunakan dict.get([nama_key]). Untuk v
 
 <span title='2026-07-09 14:30:46 +0700 +07'>July 9, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Mari Berkenalan dengan Dict Python" href="http://localhost:1313/posts/mari-berkenalan-dengan-dict-python/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Akses SSH Windows 10
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-Malam ini pas ngotak-atik komputer PCku tiba-tiba terlintas pikiran bagaimana cara menjadikan Windows 10 sebagai server SSH dan mengaksesnya dari perankat lain, misal : Termux di hape. Selama ini aku telah berhasil menjadikan hapeku sebagai server SSH melalui sintaks sshd (tentu dengan instalasi rumit sebelumnya..).
-Sebelumnya aku sempat pesimistis karena PC ini menggunakan OS Windows 10 yang tentunya cukup uzur untuk sebuah PC di tahun 2026, namun setelah browsing beberapa saat, ketemulah caranya :
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-22 21:46:07 +0700 +07'>June 22, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Akses SSH Windows 10" href="http://localhost:1313/posts/akses-ssh-windows-10/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

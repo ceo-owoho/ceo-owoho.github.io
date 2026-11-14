@@ -1,0 +1,31 @@
+<article class="post-card">
+
+    <a href="{{ .RelPermalink }}">
+
+        {{ with .Params.image }}
+        <img src="{{ . }}" alt="{{ $.Title }}">
+        {{ end }}
+
+        <div class="post-content">
+
+            <span class="category">
+                {{ .Params.category }}
+            </span>
+
+            <h2>{{ .Title }}</h2>
+
+            <p>{{ .Summary }}</p>
+
+            <div class="tags">
+
+                {{ range .Params.tags }}
+                <span>#{{ . }}</span>
+                {{ end }}
+
+            </div>
+
+        </div>
+
+    </a>
+
+</article>

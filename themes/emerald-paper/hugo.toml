@@ -1,0 +1,69 @@
+baseURL = "https://bloganda.com/"
+languageCode = "id-ID"
+title = "Blog Saya"
+
+theme = "emerald-paper"
+
+defaultContentLanguage = "id"
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 9
+
+[params]
+  description = "Blog seputar teknologi, tutorial, dan pemrograman."
+  author = "Nama Anda"
+
+  # Warna utama tema
+  accentColor = "#0F766E"
+
+  # Tampilkan estimasi waktu membaca
+  showReadingTime = true
+
+  # Tampilkan daftar tag dan kategori
+  showTags = true
+  showCategories = true
+
+  # Hero image default jika artikel tidak punya gambar
+  defaultHero = "/images/default-cover.jpg"
+
+[menus]
+
+  [[menus.main]]
+    name = "Beranda"
+    pageRef = "/"
+    weight = 1
+
+  [[menus.main]]
+    name = "Artikel"
+    pageRef = "/posts"
+    weight = 2
+
+  [[menus.main]]
+    name = "Kategori"
+    pageRef = "/categories"
+    weight = 3
+
+  [[menus.main]]
+    name = "Tag"
+    pageRef = "/tags"
+    weight = 4
+
+  [[menus.main]]
+    name = "Tentang"
+    pageRef = "/about"
+    weight = 5
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.highlight]
+    style = "github-dark"
+    lineNos = false
+    noClasses = false
