@@ -3,10 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-09-30T12:24:05+07:00</lastmod>
+    <lastmod>2026-11-14T21:25:57+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-09-30T12:24:05+07:00</lastmod>
+    <lastmod>2026-11-14T21:25:57+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-11-14T21:25:57+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/programming/</loc>
+    <lastmod>2026-11-14T21:25:57+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/script-loop-rsync/</loc>
+    <lastmod>2026-11-14T21:25:57+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/daily-notes/</loc>
     <lastmod>2026-09-30T12:24:05+07:00</lastmod>
@@ -14,13 +23,7 @@
     <loc>http://localhost:1313/posts/kemarau-tahun-ini/</loc>
     <lastmod>2026-09-30T12:24:05+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-09-30T12:24:05+07:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/mengganti-nama-file-dengan-bash/</loc>
-    <lastmod>2026-09-21T09:51:53+07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/programming/</loc>
     <lastmod>2026-09-21T09:51:53+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/</loc>
@@ -55,6 +58,12 @@
   </url><url>
     <loc>http://localhost:1313/posts/prevent-git-asking-username-and-password/</loc>
     <lastmod>2026-06-13T19:53:48+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/kuliner/</loc>
+    <lastmod>2026-06-06T13:28:20+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/soto-bening-sega-pecel/</loc>
+    <lastmod>2026-06-06T13:28:20+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/idul-adha-1447-h/</loc>
     <lastmod>2026-05-28T10:03:43+00:00</lastmod>

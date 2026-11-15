@@ -13,7 +13,7 @@
       <link>http://localhost:1313/posts/script-loop-rsync/</link>
       <pubDate>Sat, 14 Nov 2026 21:25:57 +0700</pubDate>
       <guid>http://localhost:1313/posts/script-loop-rsync/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;termux-ssh&#34; loading=&#34;lazy&#34; src=&#34;termux.jpg&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img alt=&#34;termux-ssh&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/script-loop-rsync/termux.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Pada &lt;a href=&#34;https://ceo-owoho.github.io/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/&#34;&gt;artikel ini&lt;/a&gt;, aku membahas cara menyalin berkas dari server ssh Termux ke klien PC Windows 10 menggunakan &lt;code&gt;scp&lt;/code&gt; dan &lt;code&gt;rsync&lt;/code&gt;, namun kendala jaringan &amp;ldquo;terputus&amp;rdquo; masih sering terjadi.
 Setelah &amp;ldquo;berkonsultasi&amp;rdquo; dengan &lt;strong&gt;deepseek&lt;/strong&gt;, akhirnya aku memperoleh script &lt;em&gt;bash&lt;/em&gt; yang bisa secara otomatis menjalankan kembali script &lt;em&gt;rsync&lt;/em&gt; tadi hingga file tersalin dengan lengkap.&lt;/p&gt;
 &lt;p&gt;Langkah-langkahnya :&lt;/p&gt;
@@ -122,8 +122,7 @@ done
       <link>http://localhost:1313/about/</link>
       <pubDate>Tue, 15 Sep 2026 12:00:00 +0700</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>&lt;p&gt;Selamat datang di website saya!&lt;/p&gt;
-&lt;p&gt;Di sini Anda bisa menuliskan profil singkat, latar belakang, visi, atau portofolio yang ingin Anda bagikan kepada pengunjung website.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Hanya catatan kecil tentang programming dan hal-hal kecil dalam hidupku.&lt;/p&gt;</description>
     </item>
     <item>
       <title>File .env pada Python</title>
@@ -267,6 +266,26 @@ Contoh paling sederhana, dalam penulisan package yang di-&lt;strong&gt;import&lt
       <description>&lt;p&gt;&lt;img alt=&#34;github&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/prevent-git-asking-username-and-password/github_image.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Entah sejak kapan aku tidak ingat, github mengubah mekanisme otentifikasi API-nya pada Terminal, baik itu dari &lt;em&gt;Command-prompt&lt;/em&gt; Windows maupun dari &lt;em&gt;Terminal&lt;/em&gt; Linux atau &lt;em&gt;Termux&lt;/em&gt;. Hal ini mengakibatkan pengguna tidak bisa hanya mengandalkan username dan password akun Githubnya seperti sebelumnya.&lt;/p&gt;
 &lt;p&gt;Semenjak itu pula bila kita ingin menjalankan sintaks &lt;code&gt;git remote add origin ... &lt;/code&gt; atau &lt;code&gt;git pull origin ... &lt;/code&gt; maupun sintaks &lt;code&gt;git push origin ... &lt;/code&gt;, pengguna akan diminta memasukkan username dan selanjutnya akan diminta memasukkan password. Nah, isian dari password ini tidak dapat lagi diisi dengan password akun github, melainkan harus mengisikan &lt;em&gt;token&lt;/em&gt; yang dihasilkan pada menu &lt;em&gt;setting&lt;/em&gt; akun Github. Token ini biasanya berupa satu baris karakter acak yang diawali oleh &lt;em&gt;string&lt;/em&gt; &lt;code&gt;ghp_[karakter acak]&lt;/code&gt;. Hal ini tentu sangat merepotkan karena pengguna harus meng-&lt;em&gt;copy&lt;/em&gt; karakter panjang dan acak tadi untuk kemudian mem-&lt;em&gt;paste&lt;/em&gt;-kan ke layar &lt;em&gt;Command-prompt&lt;/em&gt; atau &lt;em&gt;Terminal&lt;/em&gt; mereka.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Soto Bening Sega Pecel</title>
+      <link>http://localhost:1313/posts/soto-bening-sega-pecel/</link>
+      <pubDate>Sat, 06 Jun 2026 13:28:20 +0000</pubDate>
+      <guid>http://localhost:1313/posts/soto-bening-sega-pecel/</guid>
+      <description>&lt;p&gt;Dari sekian banyak varian Soto di Indonesia, ada lima jenis Soto yang pernah aku
+santap yaitu : Soto Lamongan, Soto Betawi, Soto Banjar, Soto Semarang, dan Soto Bening. Soto favoritku adalah Soto Bening.
+Soto Bening atau mungkin juga
+dikenal sebagai Soto Seger, banyak ditemui di sekitar wilayah eks-karesidenan
+Surakarta. Di kota Solo
+sendiri ada banyak warung Soto, bahkan ada yang menjadi favorit artis,
+pengusaha, atlet, influencer, hingga mantan presiden.&lt;/p&gt;
+&lt;p&gt;Jika di Solo Raya Soto Bening menjadi favorit menu sarapan, maka di wilayah
+Mataraman, atau mudahnya daerah ber-Nomor Polisi AE dan AG, &lt;strong&gt;Nasi Pecel&lt;/strong&gt; atau &lt;strong&gt;Sega Pecel&lt;/strong&gt; menjadi menu sarapan yang paling mudah ditemui.
+Seperti hal Soto, Sega Pecel ini ada beberapa variannya walaupun aku masih belum
+menemukan ke-khas-an masing-masing. Beberapa yang terkenal adalah &lt;em&gt;Pecel Madiun,
+Pecel Kediri, Pecel Blitar&lt;/em&gt;, dan mungkin jenis pecel lain. Di Ngawi bahkan ada
+warung makan yang menggunakan istilah &lt;em&gt;Pecel Nganjukan&lt;/em&gt;, yang mungkin merujuk Kabupaten
+Nganjuk yang juga memiliki &lt;em&gt;Tugu Pecel&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Idul Adha 1447 H</title>

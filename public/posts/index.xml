@@ -6,8 +6,87 @@
     <description>Recent content in Posts on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Sep 2026 12:24:05 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 21:25:57 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Script Loop Rsync</title>
+      <link>http://localhost:1313/posts/script-loop-rsync/</link>
+      <pubDate>Sat, 14 Nov 2026 21:25:57 +0700</pubDate>
+      <guid>http://localhost:1313/posts/script-loop-rsync/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;termux-ssh&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/script-loop-rsync/termux.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Pada &lt;a href=&#34;https://ceo-owoho.github.io/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/&#34;&gt;artikel ini&lt;/a&gt;, aku membahas cara menyalin berkas dari server ssh Termux ke klien PC Windows 10 menggunakan &lt;code&gt;scp&lt;/code&gt; dan &lt;code&gt;rsync&lt;/code&gt;, namun kendala jaringan &amp;ldquo;terputus&amp;rdquo; masih sering terjadi.
+Setelah &amp;ldquo;berkonsultasi&amp;rdquo; dengan &lt;strong&gt;deepseek&lt;/strong&gt;, akhirnya aku memperoleh script &lt;em&gt;bash&lt;/em&gt; yang bisa secara otomatis menjalankan kembali script &lt;em&gt;rsync&lt;/em&gt; tadi hingga file tersalin dengan lengkap.&lt;/p&gt;
+&lt;p&gt;Langkah-langkahnya :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Buat akses ke &lt;em&gt;ssh&lt;/em&gt; tanpa password dengan &lt;code&gt;ssh key&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Caranya : pada Cygwin (PC Klien) ketikkan &lt;code&gt;ssh-keygen -t ed25519&lt;/code&gt;. Tekan enter (tanpa password) sampai selesai.&lt;/li&gt;
+&lt;li&gt;Ketik &lt;code&gt;ssh-copy-id -p 8022 [id_user]@[ip_server_ssh]&lt;/code&gt;. Jadi (misal) : &lt;code&gt;ssh-copy-id -p 8022 u0_123@11.222.333.44&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Coba ketik &lt;code&gt;ssh -p 8022 u0_123@11.222.333.44&lt;/code&gt;. Jika berhasil masuk ke server, berarti klien sudah siap.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Save as&lt;/em&gt; &amp;hellip;[dot]sh script berikut :&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/bash
+
+# --- Nilai default (boleh diubah) ---
+DEFAULT_USER=&amp;#34;u0_a123&amp;#34;
+DEFAULT_IP=&amp;#34;10.11.12.123&amp;#34;
+DEFAULT_PORT=&amp;#34;8022&amp;#34;
+DEFAULT_REMOTE_DIR=&amp;#34;/data/data/com.termux/files/home/storage/shared/Download&amp;#34;
+DEFAULT_DEST=&amp;#34;/cygdrive/d/images&amp;#34;
+DEFAULT_EXT=&amp;#34;.jpg&amp;#34;
+RETRY_DELAY=5
+
+echo &amp;#34;=== Sinkronisasi JPG dari Termux ke Lokal ===&amp;#34;
+echo
+
+# --- Input dari user (Enter = pakai default) ---
+read -r -p &amp;#34;User SSH        [$DEFAULT_USER]: &amp;#34; USER_IN
+USER_IN=&amp;#34;${USER_IN:-$DEFAULT_USER}&amp;#34;
+
+read -r -p &amp;#34;Alamat IP/Host  [$DEFAULT_IP]: &amp;#34; IP_IN
+IP_IN=&amp;#34;${IP_IN:-$DEFAULT_IP}&amp;#34;
+
+read -r -p &amp;#34;Port SSH        [$DEFAULT_PORT]: &amp;#34; PORT_IN
+PORT_IN=&amp;#34;${PORT_IN:-$DEFAULT_PORT}&amp;#34;
+
+read -r -p &amp;#34;Folder remote   [$DEFAULT_REMOTE_DIR]: &amp;#34; RDIR_IN
+RDIR_IN=&amp;#34;${RDIR_IN:-$DEFAULT_REMOTE_DIR}&amp;#34;
+
+read -r -p &amp;#34;Folder lokal    [$DEFAULT_DEST]: &amp;#34; DEST_IN
+DEST_IN=&amp;#34;${DEST_IN:-$DEFAULT_DEST}&amp;#34;
+
+read -r -p &amp;#34;Ekstensi (misal :*.jpg)    [$DEFAULT_EXT]: &amp;#34; EXT_IN
+EXT_IN=&amp;#34;${EXT_IN:-$DEFAULT_EXT}&amp;#34;
+
+# --- Susun variabel ---
+SOURCE=&amp;#34;${USER_IN}@${IP_IN}:${RDIR_IN}/${EXT_IN}&amp;#34;
+SSH_OPTIONS=&amp;#34;ssh -p ${PORT_IN} -o ServerAliveInterval=15 -o ServerAliveCountMax=3&amp;#34;
+
+echo
+echo &amp;#34;Sumber : $SOURCE&amp;#34;
+echo &amp;#34;Tujuan : $DEST_IN&amp;#34;
+echo &amp;#34;Port   : $PORT_IN&amp;#34;
+echo
+
+read -r -p &amp;#34;Lanjutkan? [Y/n]: &amp;#34; CONFIRM
+case &amp;#34;$CONFIRM&amp;#34; in
+    [nN]*) echo &amp;#34;Dibatalkan.&amp;#34;; exit 1 ;;
+esac
+
+# --- Loop retry ---
+echo &amp;#34;Memulai sinkronisasi musik...&amp;#34;
+while true; do
+    rsync -avzP -e &amp;#34;$SSH_OPTIONS&amp;#34; &amp;#34;$SOURCE&amp;#34; &amp;#34;$DEST_IN&amp;#34;
+
+    if [ $? -eq 0 ]; then
+        echo &amp;#34;Sinkronisasi berhasil diselesaikan!&amp;#34;
+        break
+    else
+        echo &amp;#34;Koneksi terputus atau error. Mencoba lagi dalam ${RETRY_DELAY} detik...&amp;#34;
+        sleep &amp;#34;$RETRY_DELAY&amp;#34;
+    fi
+done
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Sesuaikan dengan keperluan dan kemudian jalankan melalui Cygwin. Semoga berhasil.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Kemarau Tahun Ini</title>
       <link>http://localhost:1313/posts/kemarau-tahun-ini/</link>
@@ -180,6 +259,26 @@ Contoh paling sederhana, dalam penulisan package yang di-&lt;strong&gt;import&lt
       <description>&lt;p&gt;&lt;img alt=&#34;github&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/prevent-git-asking-username-and-password/github_image.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Entah sejak kapan aku tidak ingat, github mengubah mekanisme otentifikasi API-nya pada Terminal, baik itu dari &lt;em&gt;Command-prompt&lt;/em&gt; Windows maupun dari &lt;em&gt;Terminal&lt;/em&gt; Linux atau &lt;em&gt;Termux&lt;/em&gt;. Hal ini mengakibatkan pengguna tidak bisa hanya mengandalkan username dan password akun Githubnya seperti sebelumnya.&lt;/p&gt;
 &lt;p&gt;Semenjak itu pula bila kita ingin menjalankan sintaks &lt;code&gt;git remote add origin ... &lt;/code&gt; atau &lt;code&gt;git pull origin ... &lt;/code&gt; maupun sintaks &lt;code&gt;git push origin ... &lt;/code&gt;, pengguna akan diminta memasukkan username dan selanjutnya akan diminta memasukkan password. Nah, isian dari password ini tidak dapat lagi diisi dengan password akun github, melainkan harus mengisikan &lt;em&gt;token&lt;/em&gt; yang dihasilkan pada menu &lt;em&gt;setting&lt;/em&gt; akun Github. Token ini biasanya berupa satu baris karakter acak yang diawali oleh &lt;em&gt;string&lt;/em&gt; &lt;code&gt;ghp_[karakter acak]&lt;/code&gt;. Hal ini tentu sangat merepotkan karena pengguna harus meng-&lt;em&gt;copy&lt;/em&gt; karakter panjang dan acak tadi untuk kemudian mem-&lt;em&gt;paste&lt;/em&gt;-kan ke layar &lt;em&gt;Command-prompt&lt;/em&gt; atau &lt;em&gt;Terminal&lt;/em&gt; mereka.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Soto Bening Sega Pecel</title>
+      <link>http://localhost:1313/posts/soto-bening-sega-pecel/</link>
+      <pubDate>Sat, 06 Jun 2026 13:28:20 +0000</pubDate>
+      <guid>http://localhost:1313/posts/soto-bening-sega-pecel/</guid>
+      <description>&lt;p&gt;Dari sekian banyak varian Soto di Indonesia, ada lima jenis Soto yang pernah aku
+santap yaitu : Soto Lamongan, Soto Betawi, Soto Banjar, Soto Semarang, dan Soto Bening. Soto favoritku adalah Soto Bening.
+Soto Bening atau mungkin juga
+dikenal sebagai Soto Seger, banyak ditemui di sekitar wilayah eks-karesidenan
+Surakarta. Di kota Solo
+sendiri ada banyak warung Soto, bahkan ada yang menjadi favorit artis,
+pengusaha, atlet, influencer, hingga mantan presiden.&lt;/p&gt;
+&lt;p&gt;Jika di Solo Raya Soto Bening menjadi favorit menu sarapan, maka di wilayah
+Mataraman, atau mudahnya daerah ber-Nomor Polisi AE dan AG, &lt;strong&gt;Nasi Pecel&lt;/strong&gt; atau &lt;strong&gt;Sega Pecel&lt;/strong&gt; menjadi menu sarapan yang paling mudah ditemui.
+Seperti hal Soto, Sega Pecel ini ada beberapa variannya walaupun aku masih belum
+menemukan ke-khas-an masing-masing. Beberapa yang terkenal adalah &lt;em&gt;Pecel Madiun,
+Pecel Kediri, Pecel Blitar&lt;/em&gt;, dan mungkin jenis pecel lain. Di Ngawi bahkan ada
+warung makan yang menggunakan istilah &lt;em&gt;Pecel Nganjukan&lt;/em&gt;, yang mungkin merujuk Kabupaten
+Nganjuk yang juga memiliki &lt;em&gt;Tugu Pecel&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Idul Adha 1447 H</title>
