@@ -6,8 +6,19 @@
     <description>Recent content in Programming on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Nov 2026 21:25:57 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 13:29:31 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Menghapus Otomatis File Lama di Hosting</title>
+      <link>http://localhost:1313/posts/menghapus-otomatis-file-lama/</link>
+      <pubDate>Tue, 17 Nov 2026 13:29:31 +0700</pubDate>
+      <guid>http://localhost:1313/posts/menghapus-otomatis-file-lama/</guid>
+      <description>&lt;p&gt;Bagi kalian para pemilik web, akan ada saatnya kalian merasa perlu untuk &lt;em&gt;membersihkan&lt;/em&gt; file-file yang sudah tidak digunakan namun masih berada pada direktori hosting.
+Berikut ini script &lt;em&gt;Bash&lt;/em&gt; yang dapat digunakan untuk melakukan penghapusan file yang berusia lebih dari 7 (tujuh) hari :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;find /home/username/direktoriku -maxdepth 1 -type f \( -name &amp;#34;backup_*&amp;#34; \) -mtime +7 -print -delete &amp;gt;&amp;gt; /home/username/direktoriku/log-hapus.log 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Script di atas akan melakukan menghapus file berawalan &lt;em&gt;backup&lt;/em&gt;_ yang berusia lebih dari 7 hari yang berada di &lt;em&gt;/home/username/direktoriku&lt;/em&gt;.
+Daftar file yang dihapus akan dicantumkan pada &lt;em&gt;/home/username/direktoriku/log-hapus.log&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Script Loop Rsync</title>
       <link>http://localhost:1313/posts/script-loop-rsync/</link>

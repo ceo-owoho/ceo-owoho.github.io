@@ -10,7 +10,7 @@
 <meta name="description" content="Posts - CEO&#39;s Notes">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -128,6 +128,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Menghapus Otomatis File Lama di Hosting
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Bagi kalian para pemilik web, akan ada saatnya kalian merasa perlu untuk membersihkan file-file yang sudah tidak digunakan namun masih berada pada direktori hosting. Berikut ini script Bash yang dapat digunakan untuk melakukan penghapusan file yang berusia lebih dari 7 (tujuh) hari :
+find /home/username/direktoriku -maxdepth 1 -type f \( -name &#34;backup_*&#34; \) -mtime &#43;7 -print -delete &gt;&gt; /home/username/direktoriku/log-hapus.log 2&gt;&amp;1 Script di atas akan melakukan menghapus file berawalan backup_ yang berusia lebih dari 7 hari yang berada di /home/username/direktoriku. Daftar file yang dihapus akan dicantumkan pada /home/username/direktoriku/log-hapus.log
+</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-11-17 13:29:31 +0700 +07'>November 17, 2026</span></footer>
+  <a class="entry-link" aria-label="post link to Menghapus Otomatis File Lama di Hosting" href="http://localhost:1313/posts/menghapus-otomatis-file-lama/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Script Loop Rsync
     </h2>
   </header>
@@ -135,12 +151,12 @@
     <p>
 Pada artikel ini, aku membahas cara menyalin berkas dari server ssh Termux ke klien PC Windows 10 menggunakan scp dan rsync, namun kendala jaringan “terputus” masih sering terjadi. Setelah “berkonsultasi” dengan deepseek, akhirnya aku memperoleh script bash yang bisa secara otomatis menjalankan kembali script rsync tadi hingga file tersalin dengan lengkap.
 Langkah-langkahnya :
-Buat akses ke ssh tanpa password dengan ssh key. Caranya : pada Cygwin (PC Klien) ketikkan ssh-keygen -t ed25519. Tekan enter (tanpa password) sampai selesai. Ketik ssh-copy-id -p 8022 [id_user]@[ip_server_ssh]. Jadi (misal) : ssh-copy-id -p 8022 u0_123@11.222.333.44. Coba ketik ssh -p 8022 u0_123@11.222.333.44. Jika berhasil masuk ke server, berarti klien sudah siap. Save as …[dot]sh script berikut : #!/bin/bash # --- Nilai default (boleh diubah) --- DEFAULT_USER=&#34;u0_a123&#34; DEFAULT_IP=&#34;10.11.12.123&#34; DEFAULT_PORT=&#34;8022&#34; DEFAULT_REMOTE_DIR=&#34;/data/data/com.termux/files/home/storage/shared/Download&#34; DEFAULT_DEST=&#34;/cygdrive/d/images&#34; DEFAULT_EXT=&#34;.jpg&#34; RETRY_DELAY=5 echo &#34;=== Sinkronisasi JPG dari Termux ke Lokal ===&#34; echo # --- Input dari user (Enter = pakai default) --- read -r -p &#34;User SSH [$DEFAULT_USER]: &#34; USER_IN USER_IN=&#34;${USER_IN:-$DEFAULT_USER}&#34; read -r -p &#34;Alamat IP/Host [$DEFAULT_IP]: &#34; IP_IN IP_IN=&#34;${IP_IN:-$DEFAULT_IP}&#34; read -r -p &#34;Port SSH [$DEFAULT_PORT]: &#34; PORT_IN PORT_IN=&#34;${PORT_IN:-$DEFAULT_PORT}&#34; read -r -p &#34;Folder remote [$DEFAULT_REMOTE_DIR]: &#34; RDIR_IN RDIR_IN=&#34;${RDIR_IN:-$DEFAULT_REMOTE_DIR}&#34; read -r -p &#34;Folder lokal [$DEFAULT_DEST]: &#34; DEST_IN DEST_IN=&#34;${DEST_IN:-$DEFAULT_DEST}&#34; read -r -p &#34;Ekstensi (misal :*.jpg) [$DEFAULT_EXT]: &#34; EXT_IN EXT_IN=&#34;${EXT_IN:-$DEFAULT_EXT}&#34; # --- Susun variabel --- SOURCE=&#34;${USER_IN}@${IP_IN}:${RDIR_IN}/${EXT_IN}&#34; SSH_OPTIONS=&#34;ssh -p ${PORT_IN} -o ServerAliveInterval=15 -o ServerAliveCountMax=3&#34; echo echo &#34;Sumber : $SOURCE&#34; echo &#34;Tujuan : $DEST_IN&#34; echo &#34;Port : $PORT_IN&#34; echo read -r -p &#34;Lanjutkan? [Y/n]: &#34; CONFIRM case &#34;$CONFIRM&#34; in [nN]*) echo &#34;Dibatalkan.&#34;; exit 1 ;; esac # --- Loop retry --- echo &#34;Memulai sinkronisasi musik...&#34; while true; do rsync -avzP -e &#34;$SSH_OPTIONS&#34; &#34;$SOURCE&#34; &#34;$DEST_IN&#34; if [ $? -eq 0 ]; then echo &#34;Sinkronisasi berhasil diselesaikan!&#34; break else echo &#34;Koneksi terputus atau error. Mencoba lagi dalam ${RETRY_DELAY} detik...&#34; sleep &#34;$RETRY_DELAY&#34; fi done Sesuaikan dengan keperluan dan kemudian jalankan melalui Cygwin. Semoga berhasil.
+Buat akses ke ssh tanpa password dengan ssh key. Caranya : pada Cygwin (PC Klien) ketikkan ssh-keygen -t ed25519. Tekan enter (tanpa password) sampai selesai. Ketik ssh-copy-id -p 8022 [id_user]@[ip_server_ssh]. Jadi (misal) : ssh-copy-id -p 8022 u0_123@11.222.333.44. Coba ketik ssh -p 8022 u0_123@11.222.333.44. Jika berhasil masuk ke server, berarti klien sudah siap. Save as …[dot]sh script berikut : #!/bin/bash# --- Nilai default (boleh diubah) ---DEFAULT_USER=&#34;u0_a123&#34;DEFAULT_IP=&#34;10.11.12.123&#34;DEFAULT_PORT=&#34;8022&#34;DEFAULT_REMOTE_DIR=&#34;/data/data/com.termux/files/home/storage/shared/Download&#34;DEFAULT_DEST=&#34;/cygdrive/d/images&#34;DEFAULT_EXT=&#34;.jpg&#34;RETRY_DELAY=5echo &#34;=== Sinkronisasi JPG dari Termux ke Lokal ===&#34;echo# --- Input dari user (Enter = pakai default) ---read -r -p &#34;User SSH [$DEFAULT_USER]: &#34; USER_INUSER_IN=&#34;${USER_IN:-$DEFAULT_USER}&#34;read -r -p &#34;Alamat IP/Host [$DEFAULT_IP]: &#34; IP_INIP_IN=&#34;${IP_IN:-$DEFAULT_IP}&#34;read -r -p &#34;Port SSH [$DEFAULT_PORT]: &#34; PORT_INPORT_IN=&#34;${PORT_IN:-$DEFAULT_PORT}&#34;read -r -p &#34;Folder remote [$DEFAULT_REMOTE_DIR]: &#34; RDIR_INRDIR_IN=&#34;${RDIR_IN:-$DEFAULT_REMOTE_DIR}&#34;read -r -p &#34;Folder lokal [$DEFAULT_DEST]: &#34; DEST_INDEST_IN=&#34;${DEST_IN:-$DEFAULT_DEST}&#34;read -r -p &#34;Ekstensi (misal :*.jpg) [$DEFAULT_EXT]: &#34; EXT_INEXT_IN=&#34;${EXT_IN:-$DEFAULT_EXT}&#34;# --- Susun variabel ---SOURCE=&#34;${USER_IN}@${IP_IN}:${RDIR_IN}/${EXT_IN}&#34;SSH_OPTIONS=&#34;ssh -p ${PORT_IN} -o ServerAliveInterval=15 -o ServerAliveCountMax=3&#34;echoecho &#34;Sumber : $SOURCE&#34;echo &#34;Tujuan : $DEST_IN&#34;echo &#34;Port : $PORT_IN&#34;echoread -r -p &#34;Lanjutkan? [Y/n]: &#34; CONFIRMcase &#34;$CONFIRM&#34; in[nN]*) echo &#34;Dibatalkan.&#34;; exit 1 ;;esac# --- Loop retry ---echo &#34;Memulai sinkronisasi musik...&#34;while true; dorsync -avzP -e &#34;$SSH_OPTIONS&#34; &#34;$SOURCE&#34; &#34;$DEST_IN&#34;if [ $? -eq 0 ]; thenecho &#34;Sinkronisasi berhasil diselesaikan!&#34;breakelseecho &#34;Koneksi terputus atau error. Mencoba lagi dalam ${RETRY_DELAY} detik...&#34;sleep &#34;$RETRY_DELAY&#34;fidone Sesuaikan dengan keperluan dan kemudian jalankan melalui Cygwin. Semoga berhasil.
 </p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-11-14 21:25:57 +0700 +0700'>November 14, 2026</span></footer>
+<span title='2026-11-14 21:25:57 +0700 +07'>November 14, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Script Loop Rsync" href="http://localhost:1313/posts/script-loop-rsync/"></a>
 </article>
 
@@ -157,7 +173,7 @@ Aku sudah coba berpindah ke ruang tamu di depan pintu, namun di sana gangguan ny
   </div>
   <footer class="entry-footer">
 
-<span title='2026-09-30 12:24:05 +0700 +0700'>September 30, 2026</span></footer>
+<span title='2026-09-30 12:24:05 +0700 +07'>September 30, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Kemarau Tahun Ini" href="http://localhost:1313/posts/kemarau-tahun-ini/"></a>
 </article>
 
@@ -177,7 +193,7 @@ Begitulah…
   </div>
   <footer class="entry-footer">
 
-<span title='2026-09-21 09:51:53 +0700 +0700'>September 21, 2026</span></footer>
+<span title='2026-09-21 09:51:53 +0700 +07'>September 21, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Mengganti Nama File dengan Bash Sederhana" href="http://localhost:1313/posts/mengganti-nama-file-dengan-bash/"></a>
 </article>
 
@@ -194,7 +210,7 @@ scp -P 8022 -c aes128-ctr [user_ssh_termux]@[ip_ssh_termux]:[alamat_file_di_hape
   </div>
   <footer class="entry-footer">
 
-<span title='2026-09-20 22:00:30 +0700 +0700'>September 20, 2026</span></footer>
+<span title='2026-09-20 22:00:30 +0700 +07'>September 20, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Menyalin File dari SSH Termux dengan Cygwin pada Windows 10" href="http://localhost:1313/posts/menyalin-file-dari-ssh-termux-dengan-cygwin-win10/"></a>
 </article>
 
@@ -207,13 +223,13 @@ scp -P 8022 -c aes128-ctr [user_ssh_termux]@[ip_ssh_termux]:[alamat_file_di_hape
     <p> Terkadang kita memerlukan pengaturan tertentu pada aplikasi disesuaikan dengan di sistem atau komputer apa aplikasi ini berada. Pada Python pengaturan ini dapat disimpan pada sebuah file .env. Berikut langkah-langkahnya :
 Instal python-dotenv dengan sintaks pip install python-dotenv
 Buat sebuah file .env dan isi, misal :
-ASAL=solo TUJUAN=jogja Cara mengambil nilai yang berada di file .env ;
-from dotenv import load_dotenv the_source = os.getenv(&#34;ASAL&#34;) print(the_source) # solo Untuk keamanan, pastikan file .env dikecualikan dari git commit dengan menambahkan teks .env pada baris baru di file .gitignore
+ASAL=soloTUJUAN=jogja Cara mengambil nilai yang berada di file .env ;
+from dotenv import load_dotenvthe_source = os.getenv(&#34;ASAL&#34;)print(the_source) # solo Untuk keamanan, pastikan file .env dikecualikan dari git commit dengan menambahkan teks .env pada baris baru di file .gitignore
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-08-31 18:27:15 +0700 +0700'>August 31, 2026</span></footer>
+<span title='2026-08-31 18:27:15 +0700 +07'>August 31, 2026</span></footer>
   <a class="entry-link" aria-label="post link to File .env pada Python" href="http://localhost:1313/posts/env-pada-python/"></a>
 </article>
 
@@ -224,13 +240,13 @@ from dotenv import load_dotenv the_source = os.getenv(&#34;ASAL&#34;) print(the_
   </header>
   <div class="entry-content">
     <p> Secara umum, request POST dapat dilakukan format :
-curl -X POST https://example.com \ -H &#34;Content-Type: application/json&#34; \ -d &#39;{&#34;name&#34;: &#34;John Doe&#34;, &#34;email&#34;: &#34;john@example.com&#34;}&#39; namun perlu diperhatikan bahwa sintaks di atas tidak berlaku pada Windows command-prompt. Sebagai gantinya gunakan format seperti ini :
-curl -X -H &#34;Content-Type: application/json&#34; ^ -d &#34;{\&#34;name\&#34;: \&#34;John Doe\&#34;, \&#34;email\&#34;: \&#34;john@example.com\&#34;}&#34; ^ POST https://example.com gunakan tanda caret (caping) untuk sintaks multi-line pada akhir baris kecuali baris terakhir dan gunakan escape character backslash (&#34;&#34;) untuk kutip ganda format JSON yang dikirim.
+curl -X POST https://example.com \-H &#34;Content-Type: application/json&#34; \-d &#39;{&#34;name&#34;: &#34;John Doe&#34;, &#34;email&#34;: &#34;john@example.com&#34;}&#39; namun perlu diperhatikan bahwa sintaks di atas tidak berlaku pada Windows command-prompt. Sebagai gantinya gunakan format seperti ini :
+curl -X -H &#34;Content-Type: application/json&#34; ^-d &#34;{\&#34;name\&#34;: \&#34;John Doe\&#34;, \&#34;email\&#34;: \&#34;john@example.com\&#34;}&#34; ^POST https://example.com gunakan tanda caret (caping) untuk sintaks multi-line pada akhir baris kecuali baris terakhir dan gunakan escape character backslash (&#34;&#34;) untuk kutip ganda format JSON yang dikirim.
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-08-24 08:47:33 +0700 +0700'>August 24, 2026</span></footer>
+<span title='2026-08-24 08:47:33 +0700 +07'>August 24, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Curl di Windows Command Prompt" href="http://localhost:1313/posts/curl-di-windows-command-prompt/"></a>
 </article>
 
@@ -246,7 +262,7 @@ script yang akan dijalankan dari file lain dengan cara di-import; dengan script 
   </div>
   <footer class="entry-footer">
 
-<span title='2026-07-15 19:52:52 +0700 +0700'>July 15, 2026</span></footer>
+<span title='2026-07-15 19:52:52 +0700 +07'>July 15, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Arti if _name_ == &#34;__main__&#34; pada Script Python" href="http://localhost:1313/posts/arti-if-name-equal-main-di-script-python/"></a>
 </article>
 
@@ -258,12 +274,12 @@ script yang akan dijalankan dari file lain dengan cara di-import; dengan script 
   <div class="entry-content">
     <p> Manajemen file pada Python sebenarnya bisa dilakukan dengan beberapa modul. Salah satunya, kita bisa menggunakan modul Pathlib. Pertama, impor dulu modul Pathlib :
 from pathlib import Path Misalnya kita punya file dengan path lengkap : D:\folder_utama\sub_dir\myfile.jpg. Bagaimana kita dapat menentukan path direktori, nama file, dan ekstensinya?. Begini caranya :
-path_asal = &#34;D:\folder_utama\sub_dir\myfile.jpg&#34; mypath = Path(path_asal) print(mypath.nama) # ini akan menghasilkan : nama file dan ekstensi (myfile.jpg) print(mypath.stem) # ini akan menhasilkan nama file saja (myfile) print(mypath.suffix) # memhasilkan ekstensi saja, dengan titik (.jpg) Bagaimana jika ingin menggabungkan path dengan string?, gampang gunakan slash (&#34;/&#34;) :
+path_asal = &#34;D:\folder_utama\sub_dir\myfile.jpg&#34;mypath = Path(path_asal)print(mypath.nama) # ini akan menghasilkan : nama file dan ekstensi (myfile.jpg)print(mypath.stem) # ini akan menhasilkan nama file saja (myfile)print(mypath.suffix) # memhasilkan ekstensi saja, dengan titik (.jpg) Bagaimana jika ingin menggabungkan path dengan string?, gampang gunakan slash (&#34;/&#34;) :
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-07-15 12:32:33 +0700 +0700'>July 15, 2026</span></footer>
+<span title='2026-07-15 12:32:33 +0700 +07'>July 15, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Manajemen File dengan Pathlib" href="http://localhost:1313/posts/manajemen-file-dengan-pathlib/"></a>
 </article>
 
@@ -275,32 +291,14 @@ path_asal = &#34;D:\folder_utama\sub_dir\myfile.jpg&#34; mypath = Path(path_asal
   <div class="entry-content">
     <p>
 Suatu saat aku ingin menggabungkan isi seluruh file teks menjadi satu file teks baru. Hal ini terlaksana dengan menggunakan script Python berikut :
-import glob import shutil files = glob.glob(&#34;*.txt&#34;) with open(&#34;gabungan.txt&#34;, &#34;wb&#34;) as outfile: for fname in files: with open(fname, &#34;rb&#34;) as infile: shutil.copyfileobj(infile, outfile) Jika script di atas dijalankan pada suatu direktori maka isi semua file .txt yang ada pada direktori tersebut akan di-copy-paste ke file gabungan.txt.
+import globimport shutilfiles = glob.glob(&#34;*.txt&#34;)with open(&#34;gabungan.txt&#34;, &#34;wb&#34;) as outfile:for fname in files:with open(fname, &#34;rb&#34;) as infile:shutil.copyfileobj(infile, outfile) Jika script di atas dijalankan pada suatu direktori maka isi semua file .txt yang ada pada direktori tersebut akan di-copy-paste ke file gabungan.txt.
 Namun ternyata ada banyak frasa/kata yang harus dihilangkan atau diganti. Jika hal ini dilakukan hanya pada gabungan.txt tanpa melakukan penggantian pada setiap file .txt di direktori, tentunya hal ini akan sia-sia. Jadi aku harus mencari cara mengganti teks terlarang pada setiap file .txt tanpa membuka file satu per satu. Untungnya setelah browsing aku temukan script Bash berikut :
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span title='2026-07-14 20:06:00 +0700 +0700'>July 14, 2026</span></footer>
+<span title='2026-07-14 20:06:00 +0700 +07'>July 14, 2026</span></footer>
   <a class="entry-link" aria-label="post link to Mengganti Teks pada Semua File dengan Bash" href="http://localhost:1313/posts/mengganti-teks-pada-semua-file-dengan-bash/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Mari Berkenalan dengan Dict Python
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-JSON cukup populer di dunia programming tak terkecuali pada bahasa pemrograman Python. Di Python ada tipe yang sangat mirip dengan JSON yaitu dict. Dict (singkatan dari Dictionary) terdiri dari pasangan key dan value. Contohnya seperti ini :
-myprofil = { &#34;id&#34;: 1, &#34;nama&#34;:&#34;Budi&#34;, &#34;poin&#34;: 13998 } Pada contoh di atas, id, nama, dan poin adalah contoh key, sedangkan 1, Budi, dan 13998 adalah value-nya.
-Untuk mengakses value dari suatu key Dict, gunakan dict.get([nama_key]). Untuk variabel kamus di atas, jika kita ingin mencari nilai dari poin, maka sintaksnya adalah :
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-07-09 14:30:46 +0700 +0700'>July 9, 2026</span></footer>
-  <a class="entry-link" aria-label="post link to Mari Berkenalan dengan Dict Python" href="http://localhost:1313/posts/mari-berkenalan-dengan-dict-python/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
