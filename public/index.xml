@@ -6,8 +6,34 @@
     <description>Recent content on CEO&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Nov 2026 21:25:57 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 08:11:52 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mengatasi Jam Windows Error setelah Instal Linux</title>
+      <link>http://localhost:1313/posts/jam-windows-ngawur-setelah-instal-linux/</link>
+      <pubDate>Wed, 18 Nov 2026 08:11:52 +0700</pubDate>
+      <guid>http://localhost:1313/posts/jam-windows-ngawur-setelah-instal-linux/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;dual-boot&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/jam-windows-ngawur-setelah-instal-linux/dual-boot.png&#34;&gt;
+Sebenarnya bukan error sih, tapi setting awal yang sudah tepat, berubah mengunakan zona waktu yang tidak tepat.&lt;/p&gt;
+&lt;p&gt;Jadi kejadian ini bermula ketika aku memutuskan untuk meng-install &lt;em&gt;Zorin OS&lt;/em&gt; pada laptop &lt;em&gt;Lenovo&lt;/em&gt; &lt;em&gt;T470s&lt;/em&gt; ku. Seperti PC dan laptopku yang lain, aku selalu tergoda untuk membuat &lt;em&gt;dual-boot&lt;/em&gt; dengan Linux.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Laptop ASUS (&lt;em&gt;Windows 10 - Ubuntu&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;PC Rakitan (&lt;em&gt;Windows 10 - Ubuntu&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Laptop HP 245 G7 (&lt;em&gt;Windows 11 - Linux-Lite&lt;/em&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Kemudian aku ingin juga melakukan &lt;em&gt;dual-boot&lt;/em&gt; dengan &lt;em&gt;Lubuntu&lt;/em&gt; di laptop &lt;em&gt;Lenovo T470s&lt;/em&gt;. Sebelumnya pada laptop ini sudah terinstal Windows 11, namun karena ada kendala saat instalasi &lt;em&gt;Lubuntu&lt;/em&gt; ini, aku kemudian beralih ke &lt;em&gt;Zorin OS&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Menghapus File berdasarkan Usia file di Hosting</title>
+      <link>http://localhost:1313/posts/menghapus-otomatis-file-lama/</link>
+      <pubDate>Tue, 17 Nov 2026 13:29:31 +0700</pubDate>
+      <guid>http://localhost:1313/posts/menghapus-otomatis-file-lama/</guid>
+      <description>&lt;p&gt;Bagi kalian para pemilik web, akan ada saatnya kalian merasa perlu untuk &lt;em&gt;membersihkan&lt;/em&gt; file-file yang sudah tidak digunakan namun masih berada pada direktori hosting.
+Berikut ini script &lt;em&gt;Bash&lt;/em&gt; yang dapat digunakan untuk melakukan penghapusan file yang berusia lebih dari 7 (tujuh) hari :&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;find /home/username/direktoriku -maxdepth 1 -type f \( -name &amp;#34;backup_*&amp;#34; \) -mtime +7 -print -delete &amp;gt;&amp;gt; /home/username/direktoriku/log-hapus.log 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Script di atas akan melakukan menghapus file berawalan _backup__ yang berusia lebih dari 7 hari yang berada di _/home/username/direktoriku*.
+Daftar file yang dihapus akan dicantumkan pada */home/username/direktoriku/log-hapus.log_.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Script Loop Rsync</title>
       <link>http://localhost:1313/posts/script-loop-rsync/</link>

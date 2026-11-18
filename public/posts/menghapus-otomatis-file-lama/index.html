@@ -10,8 +10,8 @@
 <meta name="description" content="Bagi kalian para pemilik web, akan ada saatnya kalian merasa perlu untuk membersihkan file-file yang sudah tidak digunakan namun masih berada pada direktori hosting.
 Berikut ini script Bash yang dapat digunakan untuk melakukan penghapusan file yang berusia lebih dari 7 (tujuh) hari :
 find /home/username/direktoriku -maxdepth 1 -type f \( -name &#34;backup_*&#34; \) -mtime &#43;7 -print -delete &gt;&gt; /home/username/direktoriku/log-hapus.log 2&gt;&amp;1
-Script di atas akan melakukan menghapus file berawalan backup_ yang berusia lebih dari 7 hari yang berada di /home/username/direktoriku.
-Daftar file yang dihapus akan dicantumkan pada /home/username/direktoriku/log-hapus.log.">
+Script di atas akan melakukan menghapus file berawalan _backup__ yang berusia lebih dari 7 hari yang berada di _/home/username/direktoriku*.
+Daftar file yang dihapus akan dicantumkan pada */home/username/direktoriku/log-hapus.log_.">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/menghapus-otomatis-file-lama/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
@@ -142,8 +142,8 @@ Daftar file yang dihapus akan dicantumkan pada /home/username/direktoriku/log-ha
   <div class="post-content md-content"><p>Bagi kalian para pemilik web, akan ada saatnya kalian merasa perlu untuk <em>membersihkan</em> file-file yang sudah tidak digunakan namun masih berada pada direktori hosting.
 Berikut ini script <em>Bash</em> yang dapat digunakan untuk melakukan penghapusan file yang berusia lebih dari 7 (tujuh) hari :</p>
 <pre tabindex="0"><code>find /home/username/direktoriku -maxdepth 1 -type f \( -name &#34;backup_*&#34; \) -mtime +7 -print -delete &gt;&gt; /home/username/direktoriku/log-hapus.log 2&gt;&amp;1
-</code></pre><p>Script di atas akan melakukan menghapus file berawalan <em>backup</em>_ yang berusia lebih dari 7 hari yang berada di <em>/home/username/direktoriku</em>.
-Daftar file yang dihapus akan dicantumkan pada <em>/home/username/direktoriku/log-hapus.log</em>.</p>
+</code></pre><p>Script di atas akan melakukan menghapus file berawalan _backup__ yang berusia lebih dari 7 hari yang berada di _/home/username/direktoriku*.
+Daftar file yang dihapus akan dicantumkan pada */home/username/direktoriku/log-hapus.log_.</p>
 <p>Pastikan kode di atas ditulis dalam <strong>1 (satu) baris</strong>.</p>
 <p>Otomatis yang kumaksud di sini, tentunya jika script tadi didaftarkan dalam <em>Cron Job</em> di hosting.</p>
 
